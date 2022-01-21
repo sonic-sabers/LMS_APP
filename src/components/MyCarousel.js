@@ -21,7 +21,7 @@ const images = [
   },
   {
     id: 3,
-    image: require('../assets/imgs/DataScience.png'),
+    image: require('../assets/imgs/bg3.png'),
     header: 'It’s not just learning, \n It’s a promise!',
     para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec neque mauris eget.',
   },
@@ -35,11 +35,11 @@ const renderItem = ({item}) => {
         // padding: 20,
         // borderRadius: 20,
         alignItems: 'center',
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
         textAlign: 'center',
         textAlignVertical: 'center',
       }}>
-      <Image source={item.image} style={{width: 200, height: 200}} />
+      <Image source={item.image} style={{width: 260, height: 260,paddingBottom:-30}} />
       <Text style={{marginVertical: 10, fontSize: 26, fontWeight: '500'}}>
         {item.name}
       </Text>

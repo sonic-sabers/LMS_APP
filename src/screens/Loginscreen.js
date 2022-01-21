@@ -19,6 +19,8 @@ import PasswordInputText from 'react-native-hide-show-password-input';
 import {LogBox} from 'react-native';
 
 export default function Loginscreen({navigation}) {
+
+const ScreenName="Homescreen";
   React.useEffect(() => {
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
   }, []);
@@ -98,7 +100,7 @@ export default function Loginscreen({navigation}) {
           />
         </View> */}
           <View style={{marginTop: 30}}>
-            <Mybutton screenName="Loginscreen" text="Login" />
+            <Mybutton screenName="Homescreen" text="Login" />
           </View>
 
           <Text

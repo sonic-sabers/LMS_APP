@@ -6,4 +6,5 @@ export default colors= {
     google: '#db4A39',
     twitter: '#00ACEE',
     fontcolor:"##9FA3A9",
+    fontcolor2:"##333",
 }
