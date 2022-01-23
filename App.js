@@ -10,9 +10,15 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {
   Bottomtab,
   Carouselscreen,
+  Entermail,
   Homescreen,
   Loginscreen,
+  Register,
+  Otpscreen,
+  Resetpass,
 } from './src/screens';
+import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import {colors} from 'react-native-elements';
 // import Loginscreen from "./src/screens/Loginscreen";
 const Stack = createStackNavigator();
 const screenOptionStyle = {
@@ -43,74 +49,123 @@ function ProfileScreen({navigation}) {
   );
 }
 
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: colors.primary,
+    accent: '#3B5998',
+  },
+};
+
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={screenOptionStyle}>
-          <Stack.Screen name="Bottomtab" component={Bottomtab} />
-          <Stack.Screen name="Carouselscreen" component={Carouselscreen} />
-          <Stack.Screen name="Homescreen" component={Homescreen} />
-          <Stack.Screen name="Loginscreen" component={Loginscreen} />
-          <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <PaperProvider theme={theme}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={screenOptionStyle}>
+            <Stack.Screen name="Bottomtab" component={Bottomtab} />
+            <Stack.Screen name="Carouselscreen" component={Carouselscreen} />
+            <Stack.Screen name="Entermail" component={Entermail} />
+            <Stack.Screen name="Loginscreen" component={Loginscreen} />
+            <Stack.Screen name="Otpscreen" component={Otpscreen} />
+            <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="Resetpass" component={Resetpass} />
+            <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </PaperProvider>
   );
 }
 
-// import React,{useState} from 'react';
-// import './i18n/i18n';
-// import {View, Text,Pressable} from 'react-native';
-// import {useTranslation} from 'react-i18next';
-  
+
+
+
+
+
+
+
+// import React, { useState } from "react";
+// import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+
 // const App = () => {
-    
-//   const {t, i18n} = useTranslation();
-  
-//   const [currentLanguage,setLanguage] =useState('en');
-  
-//   const changeLanguage = value => {
-//     i18n
-//       .changeLanguage(value)
-//       .then(() => setLanguage(value))
-//       .catch(err => console.log(err));
-//   };
-  
+//   const [modalVisible, setModalVisible] = useState(false);
 //   return (
-//    <View
-//         style={{
-//           flex: 1,
-//           backgroundColor: 'white',
-//           alignItems: 'center',
-//           justifyContent: 'space-evenly',
-//         }}>
-//         <Text style={{fontWeight: 'bold', fontSize: 25, color: '#33A850'}}>
-//           {t('hello')}
-//         </Text>
-//         <Text style={{fontWeight: 'bold', fontSize: 25, color: '#33A850'}}>
-//           {t('this line is translated')}
-//         </Text>
-//         <Pressable
-//           onPress={() => changeLanguage('en')}
-//           style={{
-//             backgroundColor:
-//               currentLanguage === 'en' ? '#33A850' : '#d3d3d3',
-//             padding: 20,
-//           }}>
-//           <Text>Select English</Text>
-//         </Pressable>
-//         <Pressable
-//           onPress={() => changeLanguage('hi')}
-//           style={{
-//             backgroundColor:
-//               currentLanguage === 'hi' ? '#33A850' : '#d3d3d3',
-//             padding: 20,
-//           }}>
-//           <Text>हिंदी का चयन करें</Text>
-//         </Pressable>
-//       </View>
+//     <View style={styles.centeredView}>
+//       <Modal
+//         animationType="slide"
+//         transparent={true}
+//         visible={modalVisible}
+//         onRequestClose={() => {
+//           Alert.alert("Modal has been closed.");
+//           setModalVisible(!modalVisible);
+//         }}
+//       >
+//         <View style={styles.centeredView}>
+//           <View style={styles.modalView}>
+//             <Text style={styles.modalText}>Hello World!</Text>
+//             <Pressable
+//               style={[styles.button, styles.buttonClose]}
+//               onPress={() => setModalVisible(!modalVisible)}
+//             >
+//               <Text style={styles.textStyle}>Hide Modal</Text>
+//             </Pressable>
+//           </View>
+//         </View>
+//       </Modal>
+//       <Pressable
+//         style={[styles.button, styles.buttonOpen]}
+//         onPress={() => setModalVisible(true)}
+//       >
+//         <Text style={styles.textStyle}>Show Modal</Text>
+//       </Pressable>
+//     </View>
 //   );
 // };
-  
+
+// const styles = StyleSheet.create({
+//   centeredView: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     marginTop: 22
+//   },
+//   modalView: {
+//     margin: 20,
+//     backgroundColor: "white",
+//     borderRadius: 20,
+//     padding: 35,
+//     alignItems: "center",
+//     shadowColor: "#000",
+//     shadowOffset: {
+//       width: 0,
+//       height: 2
+//     },
+//     shadowOpacity: 0.25,
+//     shadowRadius: 4,
+//     elevation: 5
+//   },
+//   button: {
+//     borderRadius: 20,
+//     padding: 10,
+//     elevation: 2
+//   },
+//   buttonOpen: {
+//     backgroundColor: "#F194FF",
+//   },
+//   buttonClose: {
+//     backgroundColor: "#2196F3",
+//   },
+//   textStyle: {
+//     color: "white",
+//     fontWeight: "bold",
+//     textAlign: "center"
+//   },
+//   modalText: {
+//     marginBottom: 15,
+//     textAlign: "center"
+//   }
+// });
+
 // export default App;

@@ -10,121 +10,115 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {colors} from '../constants';
-// import state from '../assets/Data';
-export default class Latestcourse extends Component {
-  state = {
-    names: [
-      {
-        name: 'Development',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 11,
-      },
-      {
-        name: 'Teaching',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 12,
-      },
-      {
-        name: 'Computer',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 13,
-      },
-      {
-        name: 'Teaching1',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 14,
-      },
-      {
-        name: 'Computer1',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 15,
-      },
-      {
-        name: 'Development1',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 16,
-      },
-      {
-        name: 'Teaching2',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 17,
-      },
-      {
-        name: 'Computer3',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 18,
-      },
-      {
-        name: 'Development2',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 19,
-      },
-      {
-        name: 'Computer2',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 110,
-      },
-      {
-        name: 'Teaching3',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 111,
-      },
-      {
-        name: 'Development3',
-        course: 'Core Java for \n bignner',
-        Trainer: 'Trainer name',
-        rating: '4',
-        reviews: ' (432)',
-        Price: ' 1999 ',
-        id: 112,
-      },
-    ],
-  };
+import Data from '../constants/Data';
+export default class LatestLatestcourse extends Component {
+  constructor(props) {
+    super(props);
+    this.initData = Data;
+    this.state = {
+      data: this.initData,
+    };
+  }
   render() {
+    const items = this.state.data.map(item => {
+      return (
+        <TouchableOpacity
+          key={item.id}
+          style={{flex: 1, marginRight: 5, width: 160}}
+          onPress={() => alert('Its an alert')}>
+          <Image
+            source={require('../assets/imgs/unsplash_1.png')}
+            resizeMode="cover"
+            style={{
+              // flex: 1,
+              height: 130,
+              width: 160,
+              // marginHorizontal: 9.5,
+              borderRadius: 5,
+              // justifyContent: 'center',
+              // alignItems: 'center',
+            }}
+          />
+          <ImageBackground
+            source={require('../assets/imgs/Rectangle.png')}
+            resizeMode="cover"
+            style={{
+              height: 21,
+              width: 50,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: -120,
+              marginBottom: 100,
+            }}>
+            <Text
+              style={{
+                fontSize: 10,
+                color: colors.white,
+                alignSelf: 'center',
+              }}>
+              HOT
+            </Text>
+          </ImageBackground>
+          <View style={styles.item}>
+            <Text
+              style={{
+                fontSize: 15,
+                fontWeight: '800',
+                textAlign: 'left',
+              }}>
+              {item.Latestcourse}
+            </Text>
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: '400',
+                textAlign: 'left',
+              }}>
+              {item.Trainer}
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: '400',
+                  textAlign: 'left',
+                  marginLeft: 2,
+                }}>
+                {item.rating} - stars
+              </Text>
+              <Text
+                style={{
+                  fontSize: 11,
+                  fontWeight: '400',
+                  textAlign: 'left',
+                }}>
+                {item.reviews}
+              </Text>
+            </View>
+            <Text
+              style={{
+                fontSize: 15,
+                fontWeight: 'bold',
+                textAlign: 'left',
+                marginLeft: 2,
+              }}>
+              INR
+              <Text
+                style={{
+                  fontWeight: '900',
+                  color: '#000',
+                }}>
+                {item.Price}
+              </Text>
+            </Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
     return (
       <View>
         <Text
@@ -136,90 +130,23 @@ export default class Latestcourse extends Component {
             color: '#111',
             marginVertical: 10,
           }}>
-          Latest Course
+          Latest course
         </Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {this.state.names.map((item, index) => (
-            <TouchableOpacity style={{flex: 1, marginRight: 5}}  onPress={() => alert('Its an alert')}>
-              <Image
-                source={require('../assets/imgs/unsplash_1.png')}
-                resizeMode="cover"
-                style={{
-                  // flex: 1,
-                  height: 130,
-                  width: 160,
-                  // marginHorizontal: 9.5,
-                  borderRadius: 5,
-                  // justifyContent: 'center',
-                  // alignItems: 'center',
-                }}
-              />
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={{
+            paddingLeft: 10,marginLeft:-10
 
-              <View key={item.id} style={styles.item}>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    fontWeight: '800',
-                    textAlign: 'left',
-                  }}>
-                  {item.course}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 12,
-                    fontWeight: '400',
-                    textAlign: 'left',
-                  }}>
-                  {item.Trainer}
-                </Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <Text
-                    style={{
-                      fontSize: 14,
-                      fontWeight: '400',
-                      textAlign: 'left',
-                      marginLeft: 2,
-                    }}>
-                    {item.rating} - stars
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: 11,
-                      fontWeight: '400',
-                      textAlign: 'left',
-                    }}>
-                    {item.reviews}
-                  </Text>
-                </View>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    fontWeight: 'bold',
-                    textAlign: 'left',
-                    marginLeft: 2,
-                  }}>
-                  INR
-                  <Text
-                    style={{
-                      fontWeight: '900',
-                      color: '#000',
-                    }}>
-                    {item.Price}
-                  </Text>
-                </Text>
-              </View>
-            </TouchableOpacity>
-          ))}
+          }}>
+          {items}
         </ScrollView>
         <TouchableOpacity onPress={() => alert('Its an alert')}>
           <View
             style={{
               justifyContent: 'flex-end',
               flexDirection: 'row',
+              marginTop: 10,
             }}>
             <Text
               style={{
@@ -242,7 +169,6 @@ export default class Latestcourse extends Component {
 {
   /* </Image> */
 }
-// export default Latestcourses;
 
 const styles = StyleSheet.create({
   item: {
@@ -255,3 +181,7 @@ const styles = StyleSheet.create({
     // marginHorizontal:50,
   },
 });
+
+{
+  /*           */
+}

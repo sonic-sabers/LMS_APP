@@ -8,8 +8,8 @@ import {windowWidth} from '../constants';
 
 let windowWidthmain = windowWidth / 3;
 import {LogBox} from 'react-native';
-import {ImageBackgrounds} from '../components';
-import { Homescreen,Mycourse } from '../screens';
+import {ImageBackgrounds, Mycourses} from '../components';
+import {Homescreen, Mycourse, Course} from '../screens';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -24,7 +24,8 @@ function Feed() {
         translucent={true}
       />
       <ImageBackgrounds style={{flex: 1}}>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <View
+          style={{flex: 1, justifyContentT: 'center', alignItems: 'center'}}>
           <Text>Feed!</Text>
         </View>
       </ImageBackgrounds>
@@ -55,31 +56,26 @@ const Tab = createMaterialBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Homescreen"
       activeColor={colors.primary}
-      labelStyle={{fontSize: 12}}
-      style={{backgroundColor: 'tomato'}}
-      screenOptions={{}}
+      // labelStyle={{fontSize: 12}}
       tabBarOptions={{
         activeTintColor: '#fff',
         inactiveTintColor: 'lightgray',
-        activeBackgroundColor: '#c4461c',
-        inactiveBackgroundColor: '#b55031',
         style: {
-          backgroundColor: '#CE4418',
-          paddingBottom: 3,
         },
       }}
-      barStyle={{backgroundColor: '#f9f9f9'}}
-      screenOptions={{
-        tabBarOptions: {
-          style: {
-            backgroundColor: '#f9f9f9',
-          },
-        },
+      barStyle={{
+        backgroundColor: '#f9f9f9',
+        position: 'absolute',
+        overflow: 'hidden',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 5,
+        borderBottomLeftRadius: 5,
       }}>
       <Tab.Screen
-        name="Feed"
+        name="Homescreen"
         component={Homescreen}
         options={{
           tabBarLabel: 'Home',
@@ -87,7 +83,7 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Mycourse"
+        name="Mycourses"
         component={Mycourse}
         options={{
           tabBarLabel: 'My Course',
@@ -98,7 +94,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={Course}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color}) => (

@@ -9,42 +9,47 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {colors} from '../constants';
+import Data from '../constants/Data';
 
 class PopularCategory extends Component {
-  state = {
-    names: [
-      {name: 'Development', id: 1},
-      {name: 'Teaching', id: 2},
-      {name: 'Computer', id: 3},
-      {name: 'Teaching', id: 4},
-      {name: 'Computer', id: 5},
-      {name: 'Development', id: 6},
-      {name: 'Teaching', id: 7},
-      {name: 'Computer', id: 8},
-      {name: 'Development', id: 9},
-      {name: 'Computer', id: 10},
-      {name: 'Teaching', id: 11},
-      {name: 'Development', id: 12},
-    ],
-  };
+  constructor(props) {
+    super(props);
+    this.initData = Data;
+    this.state = {
+      data: this.initData,
+    };
+  }
   render() {
+    const items = this.state.data.map(item => {
+      return (
+        <View key={item.id} style={{marginTop: 10}}>
+          <ImageBackground
+            key={item.id}
+            source={require('../assets/imgs/imgIMG.png')}
+            resizeMode="cover"
+            imageStyle={{ borderRadius: 6}}
+            style={styles.image}>
+            <TouchableOpacity
+              onPress={() => alert('You choose ' + item.category)}>
+              <View style={styles.item}>
+                <Text style={styles.itemname1}>{item.category}</Text>
+              </View>
+            </TouchableOpacity>
+          </ImageBackground>
+        </View>
+      );
+    });
+
     return (
       <View>
         <Text style={styles.top}>Popular category in our platform</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {this.state.names.map((item, index) => (
-            <ImageBackground
-              source={require('../assets/imgs/imgIMG.png')}
-              resizeMode="cover"
-              style={styles.image}>
-              <TouchableOpacity
-                onPress={() => alert('You choose ' + item.name)}>
-                <View key={item.id} style={styles.item}>
-                  <Text style={styles.itemname1}>{item.name}</Text>
-                </View>
-              </TouchableOpacity>
-            </ImageBackground>
-          ))}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={{
+            paddingLeft: 10,marginLeft:-10
+          }}>
+          {items}
         </ScrollView>
         <TouchableOpacity onPress={() => alert('Its an alert')}>
           <View style={styles.opacity}>
@@ -95,6 +100,7 @@ const styles = StyleSheet.create({
     marginLeft: -0,
     color: '#111',
     marginBottom: 10,
+    marginTop: 10,
   },
   seemore: {
     fontWeight: '900',

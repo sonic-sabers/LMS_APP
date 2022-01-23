@@ -30,15 +30,13 @@ export default function Carouselscreen({navigation}) {
                 marginRight: 20,
               }}
               onPress={() => navigation.navigate(Loginscreen)}>
-              <Text style={{color: colors.primary, fontWeight: '700'}}>
-                Skip
-              </Text>
+              <Text style={{color: colors.primary, fontWeight: '700'}}> Skip </Text>
               <Icon name="arrow-right" size={18} color={colors.primary} />
             </TouchableOpacity>
             <MyCarousel />
             <View style={{justifyContent: 'space-evenly'}}>
               <Mybutton
-                screenName="ProfileScreen"
+                screenName="Register"
                 colours={colors.primary}
                 text="Register"
               />
@@ -47,18 +45,7 @@ export default function Carouselscreen({navigation}) {
                 colours={colors.primary}
                 bgcolor="#754bae"
               />
-              {/* <TouchableOpacity onPress={() => navigation.navigate(ProfileScreen)}>
-            <View style={styles.buttons}>
-              <Text
-                style={{
-                  fontSize: 16,
-                  color: colors.primary,
-                  fontWeight: '500',
-                }}>
-                Log In
-              </Text>
-            </View>
-          </TouchableOpacity> */}
+      
             </View>
           </View>
         </ScrollView>
@@ -66,17 +53,3 @@ export default function Carouselscreen({navigation}) {
     </ImageBackgrounds>
   );
 }
-
-const styles = StyleSheet.create({
-  buttons: {
-    backgroundColor: colors.white,
-    width: '75%',
-    marginHorizontal: 50,
-    height: 50,
-    borderRadius: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 0.5,
-    marginTop: 20,
-  },
-});

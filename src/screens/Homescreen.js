@@ -10,7 +10,13 @@ import {
 import Search from 'react-native-search-box';
 
 import {ScrollView} from 'react-native-gesture-handler';
-import {Header, ImageBackgrounds, MyText, Prevcourse, TTrainers} from '../components';
+import {
+  Header,
+  ImageBackgrounds,
+  MyText,
+  Prevcourse,
+  TTrainers,
+} from '../components';
 import {Searchscreen, PopularCategory, Latestcourse} from '../components';
 
 const Homescreen = () => (
@@ -23,22 +29,29 @@ const Homescreen = () => (
       />
       <ImageBackgrounds>
         <View style={styles.container}>
-        
           <Header />
-          <ScrollView showsVerticalScrollIndicator={false} style={{marginBottom:90}}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{marginBottom: 90}}>
             <View
               style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginVertical: 20,
-              }}>
-              {/* <Searchscreen /> */}
+                marginVertical: 10,
+              }}
+            />
+
+            <View style={{paddingHorizontal: 20}}>
+              <Search
+                style={{
+                  marginVertical: 20,
+                }}
+              />
             </View>
-              <Search style={{magrinVertical:20}}/>
-            <PopularCategory />
-            <Latestcourse />
-            <TTrainers />
-            <Prevcourse/>
+            <View style={{paddingBottom: 20,marginLeft:10}}>
+              <PopularCategory />
+              <Latestcourse />
+              <TTrainers />
+              <Prevcourse />
+            </View>
           </ScrollView>
         </View>
       </ImageBackgrounds>
@@ -49,7 +62,8 @@ const Homescreen = () => (
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    padding: 20,
+    paddingTop: 20,
+    // paddingBottom:-20
     // justifyContent: 'center',
     // alignItems: 'center',
   },
