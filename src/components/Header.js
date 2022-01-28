@@ -6,7 +6,7 @@ let Username = "My name"
 
 export default function Header() {
   return (
-    <View>
+    <View style={{backgroundColor:"#fff",marginTop:-20,padding:10}}>
       <View style={styles.headers}>
         <View style={styles.header1}>
           <Image source = {require('../assets/imgs/MenuIcon1.png')}  style={{height:23,width:23}}/>
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     position: 'relative',
     // borde
+    
   },
   header2: {},
   text1: {fontSize: 20, fontWeight: '500',textAlign: 'left',  marginLeft: -0,color:'#111'},

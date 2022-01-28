@@ -24,17 +24,19 @@ export default class LatestLatestcourse extends Component {
       return (
         <TouchableOpacity
           key={item.id}
-          style={{flex: 1, marginRight: 5, width: 160}}
+          style={{flex: 1, marginRight: 5, width: 160,backgroundColor:"#F8F8F8",padding:10,borderRadius:10}}
           onPress={() => alert('Its an alert')}>
           <Image
             source={require('../assets/imgs/unsplash_1.png')}
             resizeMode="cover"
             style={{
               // flex: 1,
-              height: 130,
-              width: 160,
+              height: 115,
+              width: 150,
               // marginHorizontal: 9.5,
               borderRadius: 5,
+              marginTop:-10,
+              marginLeft:-10
               // justifyContent: 'center',
               // alignItems: 'center',
             }}
@@ -47,8 +49,9 @@ export default class LatestLatestcourse extends Component {
               width: 50,
               justifyContent: 'center',
               alignItems: 'center',
-              marginTop: -120,
+              marginTop: -100,
               marginBottom: 100,
+              marginLeft:-10,
             }}>
             <Text
               style={{

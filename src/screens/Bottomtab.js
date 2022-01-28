@@ -2,10 +2,8 @@ import * as React from 'react';
 import {Text, View, StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-// import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {windowWidth} from '../constants';
-
 let windowWidthmain = windowWidth / 3;
 import {LogBox} from 'react-native';
 import {ImageBackgrounds, Mycourses} from '../components';

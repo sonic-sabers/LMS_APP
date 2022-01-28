@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    height: 130,
+    height: 65,
     width: 160,
     marginRight: 5,
     borderRadius: 15,
@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
   itemname1: {
     fontSize: 20,
     fontWeight: '400',
-    textAlign: 'left',
-    marginTop: 70,
+    textAlign: 'center',
+    // marginTop: 70,
     color: colors.white,
   },
   top: {
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     marginLeft: -0,
     color: '#111',
     marginBottom: 10,
-    marginTop: 10,
+    marginTop: -20,
   },
   seemore: {
     fontWeight: '900',

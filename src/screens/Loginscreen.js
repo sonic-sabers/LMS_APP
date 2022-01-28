@@ -7,121 +7,118 @@ import {
   View,
   // TextInput,
   KeyboardAvoidingView,
-  SafeAreaView,
+  SafeAreaView,ScrollView
 } from 'react-native';
 import React from 'react';
 import {
   ImageBackgrounds,
-  Loginbutton,
   Mybutton,
   Socialbutton,
-  Toinput,
+  ForgetP,
+  MyText,
 } from '../components';
 import {colors} from '../constants';
 import Toregister from '../components/Toregister';
-import {Input} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import PasswordInputText from 'react-native-hide-show-password-input';
 import {LogBox} from 'react-native';
 import {TextInput} from 'react-native-paper';
-
+import {useNavigation} from '@react-navigation/native';
+import {Formik} from 'formik';
+import * as Yup from 'yup';
 export default function Loginscreen({navigation}) {
-  const ScreenName = 'Resetpass';
   React.useEffect(() => {
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
   }, []);
-  const [hidePass, setHidePass] = React.useState(true);
-  const [text, setText] = React.useState('');
-  const [Password, setPassword] = React.useState('');
+  const [email, setemail] = React.useState('');
+  const [password, setpassword] = React.useState('');
   const [hasEmailErrors, setEmailErrors] = React.useState(false);
+
+  const UserInfo = {
+    email: '',
+    password: '',
+  };
+  const validationSchema = Yup.object({
+    email: Yup.string().email('Invalid email!').required('Email is required!'),
+    password: Yup.string()
+      .trim()
+      .min(8, 'Password is too short!')
+      .required('Password is required!'),
+  });
   return (
     <SafeAreaView style={{flex: 1}}>
-      <ImageBackgrounds>
+      <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
         <View
           style={{
-            // flex: 1,
             padding: 24,
-            // backgroundColor: colors.white,
-            // justifyContent: 'space-evenly',
           }}>
           <KeyboardAvoidingView behaviour="position">
-            <Text
-              style={{
-                marginVertical: 10,
-                fontSize: 26,
-                textAlign: 'center',
-                alignSelf: 'center',
-                textAlignVertical: 'center',
-                fontWeight: '500',
-                color: colors.black,
-                marginTop: 70,
-              }}>
-              Welcome back! {'\n'} Sign in to continue!
-            </Text>
-
-            <TextInput
-              label="Enter email address"
-              style={{
-                marginTop: 15,
-                backgroundColor: colors.primary,
-                marginHorizontal: 10,
-                placeholderTextColor: '#111',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            <MyText> Welcome back! {'\n'} Sign in to continue!</MyText>
+            <Formik
+              initialValues={UserInfo}
+              onSubmit={(values, formikActions) => {
+                setTimeout(() => {
+                  console.log(values);
+                  formikActions.resetForm();
+                  formikActions.setSubmitting(false);
+                  navigation.navigate('Bottomtab')
+                }, 3000);
               }}
-              // placeholder="Enter email address"
-              onChangeText={text => setText(text)}
-              defaultValue={text}
-            />
-            <View style={{marginLeft: 12, marginRight: 12}}>
-              <PasswordInputText
-                value={Password}
-                onChangeText={Password => setPassword(Password)}
-                useNativeDriver={false}
-                // underlineColorAndroid={'black'}
-                baseColor="black"
-                // style={{borderBottomWidth: 2,paddingBottom:-10}}
-              />
-            </View>
+              validationSchema={validationSchema}
+            >
+              {({
+                values,
+                errors,
+                touched,
+                isSubmitting,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+              }) => {
+                {
+                }
+                const {email, password} = values;
+                return (
+                  <>
+            
 
-            <View
-              style={{
-                borderColor: '#333',
-                borderWidth: 0.5,
-                width: '92%',
-                alignSelf: 'center',
-                marginTop: -8.5,
-                height: 1,
-              }}
-            />
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'flex-end',
-                flexDirection: 'row',
-                marginTop: 5,
-                marginRight: 10,
-              }}
-              onPress={() => navigation.navigate(Entermail)}>
-              <Text style={{color: colors.black, fontWeight: '800'}}>
-                Forget Password?
-              </Text>
-            </TouchableOpacity>
-            <View style={{marginTop: 30}}>
-              <Mybutton screenName="Bottomtab" text="Login" />
-            </View>
+                    <Mytextinput
+                      value={email}
+                      error={touched.email && errors.email}
+                      onChangeText={handleChange('email')}
+                      onBlur={handleBlur('email')}
+                      autoCapitalize="none"
+                      label="Email"
+                      placeholder="Enter email address"
+                    />
 
-            <Text
-              style={{
-                alignSelf: 'center',
-                marginVertical: 10,
-                fontSize: 18,
-                fontWeight: '400',
-              }}>
-              or
-            </Text>
-            <TouchableOpacity onPress={() => navigation.navigate(ScreenName)}>
+                    <Mytextinput
+                      value={password}
+                      error={touched.password && errors.password}
+                      onChangeText={handleChange('password')}
+                      onBlur={handleBlur('password')}
+                      autoCapitalize="none"
+                      label="Password"
+                      placeholder="Enter Password"
+                      secureTextEntry
+                    />
+            
+
+                    <ForgetP ScreenName="Resetpass" />
+                    <View style={{marginTop: 30}}>
+                      <Mybutton
+                        submitting={isSubmitting}
+                        onPress={handleSubmit}
+                        text="Login"
+                      />
+                    </View>
+                  </>
+                );
+              }}
+            </Formik>
+            <Text style={styles.or}>or</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Bottomtab')}>
               <View style={styles.buttons}>
-                {/* <Icon name="arrow-right" size={18} color={colors.black} /> */}
                 <Image
                   source={require('../assets/imgs/google.png')}
                   style={{width: 27, height: 27, marginRight: 17}}
@@ -138,9 +135,8 @@ export default function Loginscreen({navigation}) {
                 </View>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate(ScreenName)}>
+            <TouchableOpacity onPress={() => navigation.navigate('Bottomtab')}>
               <View style={styles.buttons}>
-                {/* <Icon name="arrow-right" size={18} color={colors.black} /> */}
                 <Image
                   source={require('../assets/imgs/facebook.png')}
                   style={{width: 27, height: 27, marginRight: 17}}
@@ -162,7 +158,7 @@ export default function Loginscreen({navigation}) {
             </View>
           </KeyboardAvoidingView>
         </View>
-      </ImageBackgrounds>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -179,5 +175,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 20,
     marginVertical: 12,
+  },
+  email: {
+    marginTop: 15,
+    backgroundColor: colors.primary,
+    marginHorizontal: 10,
+    placeholderTextColor: '#111',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  Space: {
+    marginTop: 15,
+  },
+  or: {
+    alignSelf: 'center',
+    marginVertical: 10,
+    fontSize: 18,
+    fontWeight: '400',
   },
 });

@@ -9,19 +9,37 @@ export const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
 const images = [
   {
     id: 1,
-    image: require('../assets/imgs/ToDoList.png'),
+    image: require('../assets/imgs/Banner.png'),
     header: 'Better way to learning  \n is calling you!',
     para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec neque mauris eget.',
   },
   {
     id: 2,
-    image: require('../assets/imgs/FreshFolk.png'),
+    image: require('../assets/imgs/Banner.png'),
     header: 'Find yourself  by doing  \n whatever you do !',
     para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec neque mauris eget.',
   },
   {
     id: 3,
-    image: require('../assets/imgs/bg3.png'),
+    image: require('../assets/imgs/Banner.png'),
+    header: 'It’s not just learning, \n It’s a promise!',
+    para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec neque mauris eget.',
+  },
+  {
+    id: 4,
+    image: require('../assets/imgs/Banner.png'),
+    header: 'It’s not just learning, \n It’s a promise!',
+    para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec neque mauris eget.',
+  },
+  {
+    id: 5,
+    image: require('../assets/imgs/Banner.png'),
+    header: 'It’s not just learning, \n It’s a promise!',
+    para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec neque mauris eget.',
+  },
+  {
+    id: 6,
+    image: require('../assets/imgs/Banner.png'),
     header: 'It’s not just learning, \n It’s a promise!',
     para: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec neque mauris eget.',
   },
@@ -38,44 +56,35 @@ const renderItem = ({item}) => {
         // backgroundColor: 'white',
         textAlign: 'center',
         textAlignVertical: 'center',
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        // elevation: 2,
       }}>
       <Image
         source={item.image}
-        style={{width: 260, height: 260, paddingBottom: -30}}
+        style={{
+          width: '95%',
+          height: 120,
+          paddingBottom: -40,
+          borderRadius: 20,
+          shadowColor: '#000',
+          shadowOffset: {width: 0, height: 2},
+          shadowOpacity: 0.5,
+          shadowRadius: 2,
+          // elevation: 2,
+        }}
       />
-      <Text style={{marginVertical: 10, fontSize: 26, fontWeight: '500'}}>
-        {item.name}
-      </Text>
-      <Text
-        style={{
-          marginVertical: 10,
-          fontSize: 26,
-          fontWeight: '500',
-          textAlign: 'center',
-          alignSelf: 'center',
-          textAlignVertical: 'center',
-        }}>
-        {item.header}
-      </Text>
-      <Text
-        style={{
-          marginVertical: 10,
-          fontSize: 16,
-          fontWeight: '400',
-          textAlign: 'center',
-          textAlignVertical: 'center',
-        }}>
-        {item.para}
-      </Text>
     </View>
   );
 };
 
-const myCarousel = () => {
+const Banner = () => {
   const [index, setIndex] = useState(0);
   const isCarousel = useRef(null);
   return (
-    <View style={{marginVertical: 10}}>
+    <View style={{marginTop:20}} >
       <Carousel
         ref={isCarousel}
         data={images}
@@ -83,25 +92,28 @@ const myCarousel = () => {
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
         onSnapToItem={index => setIndex(index)}
-        autoplayInterval={3000}
+        autoplayInterval={3500}
         autoplay
         enableMomentum={false}
         loop
-        // style={{
-        //   alignSelf: 'center',
-        // }}
+        style={{
+          marginBottom:-10,
+          // paddingTop:20
+        }}
       />
       <Pagination
         dotsLength={images.length}
         activeDotIndex={index}
         carouselRef={isCarousel}
         dotStyle={{
-          width: 15,
-          height: 15,
-          borderRadius: 19 / 2,
+          width: 5,
+          height: 5,
+          borderRadius: 10,
           backgroundColor: colors.white,
           borderColor: colors.primary,
           borderWidth: 4,
+          marginHorizontal: -10,
+          marginTop:-7.8,
         }}
         tappableDots={true}
         inactiveDotStyle={{
@@ -114,4 +126,4 @@ const myCarousel = () => {
   );
 };
 
-export default myCarousel;
+export default Banner;

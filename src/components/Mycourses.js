@@ -23,17 +23,17 @@ export default Mycourses = () => {
       <TabView value={index} onChange={setIndex} animationType="spring">
         <TabView.Item style={{width: '100%'}}>
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Onlinecourse />
+            <Onlinecourse filter="Online"/>
           </ScrollView>
         </TabView.Item>
         <TabView.Item style={{width: '100%'}}>
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Onlinecourse />
+            <Onlinecourse filter="F2F"/>
           </ScrollView>
         </TabView.Item>
         <TabView.Item style={{width: '100%'}}>
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Onlinecourse />
+            <Onlinecourse filter="Offline"/>
           </ScrollView>
         </TabView.Item>
       </TabView>

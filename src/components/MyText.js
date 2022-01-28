@@ -13,6 +13,16 @@ function MyText(props) {
 }
 
 const styles = StyleSheet.create({
-  colourr: {color: colors.primary},
+  colourr: {
+    color: colors.primary,
+    marginVertical: 10,
+    fontSize: 26,
+    textAlign: 'center',
+    alignSelf: 'center',
+    textAlignVertical: 'center',
+    fontWeight: '500',
+    color: colors.black,
+    marginTop: 70,
+  },
 });
 export default MyText;

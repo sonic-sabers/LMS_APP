@@ -27,74 +27,71 @@ import {Checkbox, TextInput} from 'react-native-paper';
 export default function Resetpass({navigation}) {
   const ScreenName = 'Homescreen';
   React.useEffect(() => {
-	LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
+    LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
   }, []);
-  const [text, setText] = React.useState('');
+  const [Password, setPassword] = React.useState('');
   return (
-	<SafeAreaView style={{flex: 1}}>
-	  <ImageBackgrounds>
-		<ScrollView>
-		  <View
-			style={{
-			  // flex: 1,
-			  padding: 24,
-			  // backgroundColor: colors.white,
-			  // justifyContent: 'space-evenly',
-			}}>
-			<KeyboardAvoidingView behaviour="position">
-			  <Text
-				style={{
-				  //   marginVertical: 10,
-				  fontSize: 26,
-				  //   textAlign: 'center',
-				  //   alignSelf: 'center',
-				  //   textAlignVertical: 'center',
-				  fontWeight: '500',
-				  color: colors.black,
-				}}>
-				<Icon name="left" size={31} color="#000" />
-			  </Text>
-			  <Text
-				style={{
-				  //   marginVertical: 10,
-				  fontSize: 26,
-				  //   textAlign: 'center',
-				  //   alignSelf: 'center',
-				  //   textAlignVertical: 'center',
-				  fontWeight: '500',
-				  color: colors.black,
-				  marginTop: 10,
-				}}>
-				Reset your password
-			  </Text>
-			  <View style={{marginLeft: 12, marginRight: 12}}>
-				<PasswordInputText
-				  value={Password}
-				  onChangeText={Password => setPassword(Password)}
-				  useNativeDriver={false}
-				  // underlineColorAndroid={'black'}
-				  baseColor="black"
-				  // style={{borderBottomWidth: 2,paddingBottom:-10}}
-				/>
-			  </View>
-			  <View style={{marginLeft: 12, marginRight: 12}}>
-				<PasswordInputText
-				  value={Password}
-				  onChangeText={Password => setPassword(Password)}
-				  useNativeDriver={false}
-				  // underlineColorAndroid={'black'}
-				  baseColor="black"
-				  // style={{borderBottomWidth: 2,paddingBottom:-10}}
-				/>
-			  </View>
+    <SafeAreaView style={{flex: 1}}>
+      <>
+        <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
+          <View
+            style={{
+              padding: 24,
+            }}>
+            <KeyboardAvoidingView behaviour="position">
+              <Text
+                style={{
+                  fontSize: 26,
+                  fontWeight: '500',
+                  color: colors.black,
+                }}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Loginscreen')}>
+                  <Icon
+                    name="left"
+                    size={31}
+                    color="#000"
+                    style={{
+                      marginLeft: 1,
+                      fontWeight: '900',
+                    }}
+                  />
+                </TouchableOpacity>
+              </Text>
+              <Text
+                style={{
+                  fontSize: 26,
+                  fontWeight: '500',
+                  color: colors.black,
+                  marginTop: 10,
+                  marginLeft:10
+                }}>
+                Reset your password
+              </Text>
+              <View style={{marginLeft: 12, marginRight: 12}}>
+                <PasswordInputText
+                  value={Password}
+                  onChangeText={Password => setPassword(Password)}
+                  useNativeDriver={false}
+                  baseColor="black"
+                />
+              </View>
+              <View style={{marginLeft: 12, marginRight: 12}}>
+                <PasswordInputText
+                  value={Password}
+                  onChangeText={Password => setPassword(Password)}
+                  useNativeDriver={false}
+                  baseColor="black"
+                />
+              </View>
 
-			  <View style={{marginTop: 0}}>
-				<Mybutton screenName="Homescreen" text="Reset" />
-			  </View>
-			</KeyboardAvoidingView>
-		  </View>
-		</ScrollView>
-	  </ImageBackgrounds>
-	</SafeAreaView>
+              <View style={{marginTop: 0}}>
+                <Mybutton screenName="Otpscreen" text="Reset" />
+              </View>
+            </KeyboardAvoidingView>
+          </View>
+        </ScrollView>
+      </>
+    </SafeAreaView>
   );
 }

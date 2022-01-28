@@ -19,7 +19,8 @@ import {
   Socialbutton,
   Toinput,
 } from '../components';
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Feather';
+import {colors} from '../constants';
 
 export default function Course({navigation}) {
   return (
@@ -32,7 +33,7 @@ export default function Course({navigation}) {
           marginTop: -10,
         }}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name="left" size={25} color="#000" />
+          <Icon name="chevron-left" size={28} color="#000" />
         </TouchableOpacity>
         <Text
           style={{
@@ -46,7 +47,7 @@ export default function Course({navigation}) {
         </Text>
         <Text></Text>
       </View>
-      <View>
+      <ScrollView>
         <ImageBackground
           source={require('../assets/imgs/Rectangle981phptp.png')}
           resizeMode="cover"
@@ -74,61 +75,158 @@ export default function Course({navigation}) {
             </Text>
           </View>
         </ImageBackground>
-      </View>
 
-      <View style={{padding: 10}}>
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: '500',
-            color: colors.black,
-          }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
-        </Text>
+        <View style={{padding: 10}}>
+          <Text
+            style={{
+              fontSize: 22,
+              fontWeight: '500',
+              color: colors.black,
+            }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </Text>
 
-        <Text
-          style={{
-            fontSize: 15,
-            fontWeight: '500',
-            marginTop: 10,
-          }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id suscipit
-          at rutrum ultricies. Ut vitae elit nisi, quis tortor porta. Gravida
-          donec porttitor a faucibus.{' '}
-        </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: 10,
-          }}>
-          <View>
-            <Text
-              style={{
-                fontSize: 17,
-                fontWeight: '600',
-                color: '#111',
-              }}>
-              Trainer Name
-            </Text>
-            <Text>Ratings Stuff</Text>
-          </View>
-          <View>
-            <View style={styles.sellerbox}>
+          <Text
+            style={{
+              fontSize: 15,
+              fontWeight: '500',
+              marginTop: 10,
+            }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id suscipit
+            at rutrum ultricies. Ut vitae elit nisi, quis tortor porta. Gravida
+            donec porttitor a faucibus.{' '}
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 10,
+            }}>
+            <View>
               <Text
                 style={{
-                  fontSize: 12,
-                  fontWeight: '500',
+                  fontSize: 17,
+                  fontWeight: '600',
                   color: '#111',
                 }}>
-                Bestseller
+                Trainer Name
+              </Text>
+              <Text>Ratings Stuff</Text>
+            </View>
+            <View>
+              <View style={styles.sellerbox}>
+                <Text
+                  style={{
+                    fontSize: 12,
+                    fontWeight: '500',
+                    color: '#111',
+                  }}>
+                  Bestseller
+                </Text>
+              </View>
+              <Text
+                style={{
+                  fontSize: 17,
+                  fontWeight: '600',
+                  color: '#111',
+                }}>
+                30,000 Learners
               </Text>
             </View>
-            <Text>30,000 Learners</Text>
+          </View>
+          <Text>Languages and last updates</Text>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View>
+              <Text>$ 599.00</Text>
+            </View>
+            <View>
+              <Text>Status Drop {'\n'}down</Text>
+            </View>
+          </View>
+          <View style={{flexDirection: 'row', marginHorizontal: 10}}>
+            <TouchableOpacity style={{flex: 1.2, marginLeft: -30}}>
+              <Mybutton text="But Now" />
+            </TouchableOpacity>
+            <View
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderColor: colors.primary,
+                borderWidth: 0.6,
+                borderRadius: 6,
+                paddingHorizontal: 0,
+                flex: 1,
+              }}>
+              <Text>Add to Cart</Text>
+            </View>
+          </View>
+          <View style={{marginTop: 10}}>
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: '500',
+                color: colors.black,
+              }}>
+              What you'll learn
+            </Text>
+            <View>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Icon name="check" size={25} color="#222" />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: '500',
+                  }}>
+ Lorem ipsum dolor sit amet
+                </Text>
+              </View>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Icon name="check" size={25} color="#222" />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: '500',
+                  }}>
+                  Lorem ipsum dolor sit amet
+                </Text>
+              </View>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Icon name="check" size={25} color="#222" />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: '500',
+                  }}>
+                  Lorem ipsum dolor sit amet
+                </Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: '500',
+                color: colors.black,
+              }}>
+              Requirements
+            </Text>
+            <View>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Icon name="check" size={25} color="#222" />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: '500',
+                  }}>
+                  Core,java,Frontend
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
-      </View>
-      <View></View>
+        <View>
+          <Text>sdfvfddfb </Text>
+        </View>
+      </ScrollView>
     </View>
   );
 }

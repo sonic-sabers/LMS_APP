@@ -15,69 +15,7 @@ import {colors} from '../constants';
 import Data from '../constants/Data';
 
 class Mycourse extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.initData = Data;
-  //   this.state = {
-  //     data: this.initData,
-  //   };
-  // }
   render() {
-    // const items = this.state.data.map(item => {
-    //   return (
-    //   //)})
-    //     <View key={item.id}>
-    //       <TouchableOpacity
-    //         // key={item.id}
-    //         onPress={() => alert(' you pressed course by ' + item.Instructor)}>
-    //         <View style={styles.item}>
-    //           <View style={{}}>
-    //             <Image
-    //               source={require('../assets/imgs/unsplash_1.png')}
-    //               resizeMode="cover"
-    //               style={{
-    //                 height: 110,
-    //                 width: 104,
-    //                 borderRadius: 5,
-    //               }}
-    //             />
-    //           </View>
-    //           <View
-    //             style={{
-    //               paddingLeft: 10,
-    //               justifyContent: 'space-between',
-    //             }}>
-    //             <Text
-    //               style={{
-    //                 fontSize: 18,
-    //                 fontWeight: '800',
-    //               }}>
-    //               {item.course}
-    //             </Text>
-    //             <Text
-    //               style={{
-    //                 fontSize: 14,
-    //                 fontWeight: '500',
-    //               }}>
-    //               {item.Instructor}
-    //             </Text>
-    //             <Text>{item.student} student</Text>
-    //           </View>
-    //           <View style={{justifyContent: 'flex-end', marginLeft: -11}}>
-    //             <Text
-    //               style={{
-    //                 fontSize: 18,
-    //                 fontWeight: '900',
-    //               }}>
-    //               ₹{item.price}
-    //             </Text>
-    //           </View>
-    //         </View>
-    //       </TouchableOpacity>
-    //     </View>
-    //   );
-    // });
-
     return (
       <>
         <View style={{padding: 8}}>
@@ -87,16 +25,7 @@ class Mycourse extends Component {
             <Search />
           </View>
         </View>
-        <View
-          style={{
-            justifyContent: 'center',
-            marginTop: 10,
-            height: 40,
-            backgroundColor: '#1A21BC',
-            width: '100%',
-            alignItems: 'center',
-            paddingRight: -20,
-          }}>
+        <View style={styles.enroll}>
           <Text
             style={{
               alignSelf: 'center',
@@ -104,10 +33,7 @@ class Mycourse extends Component {
             To add Enroll
           </Text>
         </View>
-        {/* <View style={{padding: 8}}>
-          <ScrollView showsVerticalScrollIndicator={false}>{items}</ScrollView>
-        </View> */}
-        <Mycourses/>
+        <Mycourses />
       </>
     );
   }
@@ -122,5 +48,14 @@ const styles = StyleSheet.create({
     marginTop: 15,
     backgroundColor: '#F8F8F8',
     borderRadius: 8,
+  },
+  enroll: {
+    justifyContent: 'center',
+    marginTop: 10,
+    height: 40,
+    backgroundColor: '#1A21BC',
+    width: '100%',
+    alignItems: 'center',
+    paddingRight: -20,
   },
 });

@@ -16,10 +16,11 @@ import {
   MyText,
   Prevcourse,
   TTrainers,
+  Banner,
 } from '../components';
 import {Searchscreen, PopularCategory, Latestcourse} from '../components';
 
-const Homescreen = () => (
+const Homescreen = ({navigation}) => (
   <>
     <SafeAreaView style={{flex: 1}}>
       <StatusBar
@@ -29,24 +30,28 @@ const Homescreen = () => (
       />
       <ImageBackgrounds>
         <View style={styles.container}>
-          <Header />
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            style={{marginBottom: 90}}>
-            <View
+          {/* <View style={{padding: 20, marginTop: -15}}> */}
+            <Header />
+          {/* </View> */}
+          {/* <View
               style={{
                 marginVertical: 10,
               }}
-            />
-
-            <View style={{paddingHorizontal: 20}}>
+            /> */}
+          {/* 
+            <View style={{paddingHorizontal: 20,marginBottom:10}}>
               <Search
                 style={{
                   marginVertical: 20,
                 }}
               />
-            </View>
-            <View style={{paddingBottom: 20,marginLeft:10}}>
+            </View> */}
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{}}
+            contentContainerStyle={{flexGrow: 1}}>
+          <Banner />
+            <View style={{ marginLeft: 10,marginBottom: 180,flex:1}}>
               <PopularCategory />
               <Latestcourse />
               <TTrainers />
@@ -61,11 +66,7 @@ const Homescreen = () => (
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     paddingTop: 20,
-    // paddingBottom:-20
-    // justifyContent: 'center',
-    // alignItems: 'center',
   },
 });
 

@@ -14,6 +14,7 @@ export default Data = [
     student: ' 4K ',
     id: 11,
     category: 'Development',
+    status: 'Online',
   },
   {
     name: 'Teaching',
@@ -30,6 +31,7 @@ export default Data = [
     student: ' 4K ',
     id: 12,
     category: 'Teaching',
+    status: 'Offline',
   },
   {
     name: 'Computer',
@@ -46,6 +48,7 @@ export default Data = [
     student: ' 4K ',
     id: 13,
     category: 'Computer',
+    status: 'F2F',
   },
   {
     name: 'Teaching1',
@@ -62,6 +65,7 @@ export default Data = [
     student: ' 4K ',
     id: 14,
     category: 'Development',
+    status: 'Online',
   },
   {
     name: 'Computer1',
@@ -78,6 +82,7 @@ export default Data = [
     student: ' 4K ',
     id: 15,
     category: 'Computer',
+    status: 'Offline',
   },
   {
     name: 'Development1',
@@ -94,6 +99,7 @@ export default Data = [
     student: ' 4K ',
     id: 16,
     category: 'Teaching',
+    status: 'Online',
   },
   {
     name: 'Teaching2',
@@ -110,6 +116,7 @@ export default Data = [
     student: ' 4K ',
     id: 17,
     category: 'Computer',
+    status: 'F2F',
   },
   {
     name: 'Computer3',
@@ -126,6 +133,7 @@ export default Data = [
     student: ' 4K ',
     id: 18,
     category: 'Development',
+    status: 'Offline',
   },
   {
     name: 'Development2',
@@ -142,6 +150,7 @@ export default Data = [
     student: ' 4K ',
     id: 19,
     category: 'Computer',
+    status: 'F2F',
   },
   {
     name: 'Computer2',
@@ -158,6 +167,7 @@ export default Data = [
     student: ' 4K ',
     id: 110,
     category: 'Teaching',
+    status: 'Online',
   },
   {
     name: 'Teaching3',
@@ -174,6 +184,7 @@ export default Data = [
     student: ' 4K ',
     id: 111,
     category: 'Development',
+    status: 'F2F',
   },
   {
     name: 'Development3',
@@ -190,6 +201,7 @@ export default Data = [
     student: ' 4K ',
     id: 112,
     category: 'Computer',
+    status: 'Offline',
   },
 ];
 // };

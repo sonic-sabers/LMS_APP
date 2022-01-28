@@ -26,7 +26,7 @@ export default function Loginbutton({screenName, text}) {
 const styles = StyleSheet.create({
   buttons: {
     backgroundColor: colors.white,
-    width: '80%',
+    width: '80%', 
     marginHorizontal: 30,
     height: 50,
     borderRadius: 6,
@@ -35,6 +35,8 @@ const styles = StyleSheet.create({
     borderRadius:10,
     borderWidth:0.5,
     borderColor: colors.primary,
-    marginVertical:20
+    marginVertical:20,
+    alignSelf:'center',
+    
   },
 });
