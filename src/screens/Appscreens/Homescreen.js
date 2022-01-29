@@ -17,8 +17,8 @@ import {
   Prevcourse,
   TTrainers,
   Banner,
-} from '../components';
-import {Searchscreen, PopularCategory, Latestcourse} from '../components';
+} from '../../components';
+import {Searchscreen, PopularCategory, Latestcourse} from '../../components';
 
 const Homescreen = ({navigation}) => (
   <>

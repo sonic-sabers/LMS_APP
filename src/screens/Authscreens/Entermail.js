@@ -18,15 +18,15 @@ import {
   Socialbutton,
   Toinput,
   Mytextinput,
-} from '../components';
-import {colors} from '../constants';
+} from '../../components';
+import {colors} from '../../constants';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {LogBox} from 'react-native';
 import {Checkbox, TextInput} from 'react-native-paper';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 export default function Entermail({navigation}) {
-  const ScreenName = 'Bottomtab';
+  
   React.useEffect(() => {
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
   }, []);

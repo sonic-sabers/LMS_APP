@@ -18,27 +18,26 @@ import {
   Socialbutton,
   Toinput,
   Mytextinput,
-} from '../components';
-import {colors} from '../constants';
-import Toregister from '../components/Toregister';
+} from '../../components';
+import {colors} from '../../constants';
+import Toregister from '../../components/Toregister';
 import {Input} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/AntDesign';
 import PasswordInputText from 'react-native-hide-show-password-input';
 import {LogBox} from 'react-native';
 import {Checkbox, TextInput} from 'react-native-paper';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+
 export default function Register({navigation}) {
   const ScreenName = 'Bottomtab';
   React.useEffect(() => {
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
   }, []);
-  const [hidePass, setHidePass] = React.useState(true);
-  const [text, setText] = React.useState('');
-  const [Password, setPassword] = React.useState('');
-  const [hasEmailErrors, setEmailErrors] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
-  
+  const [hidePass, setHidePass] = React.useState(true);
+  const [hidecPass, setHidecPass] = React.useState(true);
+
   //.matches(/^[0-9]+$/, "Must be only digits")
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -64,13 +63,13 @@ export default function Register({navigation}) {
       .required('address is required!'),
     zip: Yup.string()
       .trim()
-      .matches(/^[0-9]+$/, "Must be only digits")
+      .matches(/^[0-9]+$/, 'Must be only digits')
       .min(5, 'Invalid zip!')
       .max(10, 'Too Long!')
       .required('zip is required!'),
     number: Yup.string()
       .required('required')
-      .matches(/^[0-9]+$/, "Must be only digits")
+      .matches(/^[0-9]+$/, 'Must be only digits')
       .matches(phoneRegExp, 'Phone number is not valid')
       .min(10, 'to short')
       .max(10, 'to long'),
@@ -88,9 +87,33 @@ export default function Register({navigation}) {
 
   const [error, setError] = useState('');
 
+//   const signUp = async (values, formikActions) => {
+//     const res = await client.post('/create-user', {
+//       ...values,
+//     });
+//     if (res.data.success) {
+//       const signInRes = await client.post('/sign-in', {
+//         email: values.email,
+//         password: values.password,
+//       });
+//       if (signInRes.data.success) {
+//         navigation.dispatch(
+//           StackActions.replace('ImageUpload', {
+//             token: signInRes.data.token,
+//           })
+//         );
+//       }
+//     }
+//     formikActions.resetForm();
+//     formikActions.setSubmitting(false);
+//   };
+
+
   return (
     <SafeAreaView style={{flex: 1}}>
-      <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
+      <ScrollView
+        style={{backgroundColor: '#fff', flex: 1}}
+        showsVerticalScrollIndicator={false}>
         <View
           style={{
             padding: 24,
@@ -100,12 +123,16 @@ export default function Register({navigation}) {
               style={{
                 fontSize: 26,
                 fontWeight: '500',
+                marginRight: 40,
                 color: colors.black,
               }}>
               <TouchableOpacity
+                style={{
+                  marginRight: 40,
+                }}
                 onPress={() => navigation.navigate('Loginscreen')}>
                 <Icon
-                  name="left"
+                  name="chevron-left"
                   size={31}
                   color="#000"
                   style={{
@@ -213,7 +240,22 @@ export default function Register({navigation}) {
                       placeholder="Enter Zip"
                       keyboardType="numeric"
                     />
-
+                    {/* <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+                        marginTop: 33,
+                        marginBottom: -54,
+                        marginRight: 16,
+                      }}>
+                      <Icon
+                        name={hidePass ? 'eye-slash' : 'eye'}
+                        size={20}
+                        color="grey"
+                        onPress={() => setHidePass(!hidePass)}
+                      />
+                    </View> */}
                     <Mytextinput
                       value={password}
                       error={touched.password && errors.password}
@@ -222,8 +264,46 @@ export default function Register({navigation}) {
                       autoCapitalize="none"
                       label="Password"
                       placeholder="Enter Password"
-                      secureTextEntry
+                      secureTextEntry={hidePass ? true : false}
                     />
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+
+                        marginRight: 16,
+                      }}>
+                      {!touched.password || errors.password ? (
+                        //For error time
+                        <>
+                          <View
+                            style={{
+                              marginTop: -48,
+                              marginBottom: 25,
+                            }}>
+                            <Icon
+                              name={hidePass ? 'eye-slash' : 'eye'}
+                              size={20}
+                              color="grey"
+                              onPress={() => setHidePass(!hidePass)}
+                            />
+                          </View>
+                        </>
+                      ) : (
+                        //For non error time
+                        <>
+                          <View style={{marginTop: -39, marginBottom: 27}}>
+                            <Icon
+                              name={hidePass ? 'eye-slash' : 'eye'}
+                              size={20}
+                              color="grey"
+                              onPress={() => setHidePass(!hidePass)}
+                            />
+                          </View>
+                        </>
+                      )}
+                    </View>
 
                     <Mytextinput
                       value={confirmPassword}
@@ -234,7 +314,69 @@ export default function Register({navigation}) {
                       label="confirmPassword"
                       placeholder="Confirm Password"
                       secureTextEntry
+                      secureTextEntry={hidecPass ? true : false}
                     />
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+
+                        marginRight: 16,
+                      }}>
+                      {!touched.confirmPassword || errors.confirmPassword ? (
+                        //For error time
+                        <>
+                          <View
+                            style={{
+                              marginTop: -48,
+                              marginBottom: 25,
+                            }}>
+                            <Icon
+                              name={hidecPass ? 'eye-slash' : 'eye'}
+                              size={20}
+                              color="grey"
+                              onPress={() => setHidecPass(!hidecPass)}
+                            />
+                          </View>
+                        </>
+                      ) : (
+                        //For non error time
+                        <>
+                          <View style={{marginTop: -39, marginBottom: 27}}>
+                            <Icon
+                              name={hidecPass ? 'eye-slash' : 'eye'}
+                              size={20}
+                              color="grey"
+                              onPress={() => setHidecPass(!hidecPass)}
+                            />
+                          </View>
+                        </>
+                      )}
+                    </View>
+                    {/* <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+                        marginTop: -45,
+                        marginBottom: 20,
+                        marginRight: 16,
+                      }}>
+                      <Icon
+                        name={hidecPass ? 'eye-slash' : 'eye'}
+                        size={20}
+                        color="grey"
+                        onPress={() => setHidecPass(!hidecPass)}
+                      />
+                      {touched.confirmPassword || errors.confirmPassword ? (
+                        <>
+                          <View style={{paddingBottom: 30, marginTop: -10}} />
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                    </View> */}
                     <View
                       style={{
                         flexDirection: 'row',
@@ -265,10 +407,16 @@ export default function Register({navigation}) {
                             }}>
                             Agree conditions first
                           </Text>
+
                           <Mybutton
-                            screenName="Otpscreen"
+                            // screenName="Otpscreen"
                             text="Continue"
                             disabled={true}
+                            style={{
+                              backgroundColor: 'rgba(0,0,0,0.6)',
+                              // flex: 1,
+                              // backgroundColor: '#000'
+                            }}
                           />
                         </>
                       ) : (

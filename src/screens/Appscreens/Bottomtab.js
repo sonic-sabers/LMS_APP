@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Text, View, StatusBar} from 'react-native';
+import {Text, View, StatusBar,Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {windowWidth} from '../constants';
+import {windowWidth} from '../../constants';
 let windowWidthmain = windowWidth / 3;
+import {ImageBackgrounds, Mycourses} from '../../components';
+import {Homescreen, Mycourse, Course} from '..';
 import {LogBox} from 'react-native';
-import {ImageBackgrounds, Mycourses} from '../components';
-import {Homescreen, Mycourse, Course} from '../screens';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -36,6 +36,10 @@ function Profile() {
     <>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text>Profile!</Text>
+        <Button
+          title="Open drawer"
+          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+        />
       </View>
     </>
   );
@@ -60,8 +64,7 @@ function MyTabs() {
       tabBarOptions={{
         activeTintColor: '#fff',
         inactiveTintColor: 'lightgray',
-        style: {
-        },
+        style: {},
       }}
       barStyle={{
         backgroundColor: '#f9f9f9',

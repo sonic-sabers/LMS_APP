@@ -35,7 +35,7 @@ export default function ForgetP({ScreenName}) {
           alignItems: 'center',
           justifyContent: 'flex-end',
           flexDirection: 'row',
-          marginTop: 5,
+          // marginTop: 5,
           marginRight: 10,
         }}
         onPress={() => navigation.navigate(ScreenName)}>

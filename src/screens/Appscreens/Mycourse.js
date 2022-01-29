@@ -10,9 +10,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Search from 'react-native-search-box';
-import {Header, ImageBackgrounds, Mycourses} from '../components';
-import {colors} from '../constants';
-import Data from '../constants/Data';
+import {Header, ImageBackgrounds, Mycourses} from '../../components';
+import {colors} from '../../constants';
+import Data from '../../constants/Data';
 
 class Mycourse extends Component {
   render() {

@@ -8,9 +8,9 @@ import {
 	TouchableOpacity,
 	SafeAreaView,
 } from 'react-native';
-import {Mybutton, Loginbutton, ImageBackgrounds} from '../components';
-import MyCarousel from '../components/MyCarousel';
-import {colors} from '../constants';
+import {Mybutton, Loginbutton, ImageBackgrounds} from '../../components';
+import MyCarousel from '../../components/MyCarousel';
+import {colors} from '../../constants';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Carouselscreen({navigation}) {

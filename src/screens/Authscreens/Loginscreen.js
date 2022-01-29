@@ -7,7 +7,8 @@ import {
   View,
   // TextInput,
   KeyboardAvoidingView,
-  SafeAreaView,ScrollView
+  SafeAreaView,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import {
@@ -15,10 +16,11 @@ import {
   Mybutton,
   Socialbutton,
   ForgetP,
+  Mytextinput,
   MyText,
-} from '../components';
-import {colors} from '../constants';
-import Toregister from '../components/Toregister';
+} from '../../components';
+import {colors} from '../../constants';
+import Toregister from '../../components/Toregister';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import PasswordInputText from 'react-native-hide-show-password-input';
 import {LogBox} from 'react-native';
@@ -45,15 +47,38 @@ export default function Loginscreen({navigation}) {
       .min(8, 'Password is too short!')
       .required('Password is required!'),
   });
+  const [hidePass, setHidePass] = React.useState(true);
+
+  // const submitForm = async () => {
+  //   if (isValidForm()) {
+  //     try {
+  //       const res = await client.post('/sign-in', { ...userInfo });
+
+  //       if (res.data.success) {
+  //         setUserInfo({ email: '', password: '' });
+  //         setProfile(res.data.user);
+  //         setIsLoggedIn(true);
+  //       }
+
+  //       console.log(res.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // };
+
+
   return (
     <SafeAreaView style={{flex: 1}}>
-      <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
+      <ScrollView style={{backgroundColor: '#fff', flex: 1}} showsVerticalScrollIndicator={false}>
         <View
           style={{
             padding: 24,
           }}>
           <KeyboardAvoidingView behaviour="position">
-            <MyText> Welcome back! {'\n'} Sign in to continue!</MyText>
+            <MyText style={{marginBottom: 50}}>
+              Welcome back! {'\n'} Sign in to continue!
+            </MyText>
             <Formik
               initialValues={UserInfo}
               onSubmit={(values, formikActions) => {
@@ -61,11 +86,10 @@ export default function Loginscreen({navigation}) {
                   console.log(values);
                   formikActions.resetForm();
                   formikActions.setSubmitting(false);
-                  navigation.navigate('Bottomtab')
+                  navigation.navigate('Appnavigator');
                 }, 3000);
               }}
-              validationSchema={validationSchema}
-            >
+              validationSchema={validationSchema}>
               {({
                 values,
                 errors,
@@ -80,8 +104,6 @@ export default function Loginscreen({navigation}) {
                 const {email, password} = values;
                 return (
                   <>
-            
-
                     <Mytextinput
                       value={email}
                       error={touched.email && errors.email}
@@ -91,7 +113,6 @@ export default function Loginscreen({navigation}) {
                       label="Email"
                       placeholder="Enter email address"
                     />
-
                     <Mytextinput
                       value={password}
                       error={touched.password && errors.password}
@@ -100,9 +121,16 @@ export default function Loginscreen({navigation}) {
                       autoCapitalize="none"
                       label="Password"
                       placeholder="Enter Password"
-                      secureTextEntry
+                      secureTextEntry={hidePass ? true : false}
                     />
-            
+                    <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'flex-end',marginTop:-37,marginBottom:20,marginRight:16}}>
+                    <Icon
+                      name={hidePass ? 'eye-slash' : 'eye'}
+                      size={20}
+                      color="grey"
+                      onPress={() => setHidePass(!hidePass)}
+                    />
+                    </View>
 
                     <ForgetP ScreenName="Resetpass" />
                     <View style={{marginTop: 30}}>
@@ -120,7 +148,7 @@ export default function Loginscreen({navigation}) {
             <TouchableOpacity onPress={() => navigation.navigate('Bottomtab')}>
               <View style={styles.buttons}>
                 <Image
-                  source={require('../assets/imgs/google.png')}
+                  source={require('../../assets/imgs/google.png')}
                   style={{width: 27, height: 27, marginRight: 17}}
                 />
                 <View style={{flex: 1, justifyContent: 'center'}}>
@@ -138,7 +166,7 @@ export default function Loginscreen({navigation}) {
             <TouchableOpacity onPress={() => navigation.navigate('Bottomtab')}>
               <View style={styles.buttons}>
                 <Image
-                  source={require('../assets/imgs/facebook.png')}
+                  source={require('../../assets/imgs/facebook.png')}
                   style={{width: 27, height: 27, marginRight: 17}}
                 />
                 <View style={{flex: 1, justifyContent: 'center'}}>

@@ -7,7 +7,7 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import {Bottomtab} from '../screens';
+import { Bottomtab } from './Bottomtab';
 const screenOptionStyle = {
   headerShown: false,
 };
@@ -35,7 +35,7 @@ function Feed({navigation}) {
 function Notifications() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Notifications Screen</Text>
+      <Text>Notifications Scrvfdvdfvdvf een</Text>
     </View>
   );
 }
@@ -47,30 +47,16 @@ function MyDrawer() {
     <Drawer.Navigator
       // drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={screenOptionStyle}>
-      <Drawer.Screen name="Feed" component={Bottomtab} />
+      <Drawer.Screen name="Bottomtab" component={Bottomtab} />
       <Drawer.Screen name="Notifications" component={Notifications} />
     </Drawer.Navigator>
   );
 }
 
-export default function Appnavigator() {
+export default function Appscreen() {
   return (
-    <View style={{flex: 1, height: '100%', width: '100%', marginBottom:-15}}>
-      <NavigationContainer independent={true}>
-        <MyDrawer />
-      </NavigationContainer>
-    </View>
+    <NavigationContainer independent={true}>
+      <MyDrawer />
+    </NavigationContainer>
   );
 }
-
-// import {StyleSheet, Text, View} from 'react-native';
-// import React from 'react';
-// import Appscreen from '../screens/Appscreens/Appscreen';
-
-// export default function Appnavigator() {
-//   return (
-//     <>
-//       <Appscreen />
-//     </>
-//   );
-// }

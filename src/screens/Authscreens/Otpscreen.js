@@ -18,8 +18,8 @@ import {
   Socialbutton,
   Toinput,
   OtpInput,
-} from '../components';
-import {colors} from '../constants';
+} from '../../components';
+import {colors} from '../../constants';
 import Icon from 'react-native-vector-icons/AntDesign';
 import PasswordInputText from 'react-native-hide-show-password-input';
 import {LogBox} from 'react-native';

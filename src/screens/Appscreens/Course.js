@@ -18,9 +18,9 @@ import {
   Mybutton,
   Socialbutton,
   Toinput,
-} from '../components';
+} from '../../components';
 import Icon from 'react-native-vector-icons/Feather';
-import {colors} from '../constants';
+import {colors} from '../../constants';
 
 export default function Course({navigation}) {
   return (
@@ -49,12 +49,12 @@ export default function Course({navigation}) {
       </View>
       <ScrollView>
         <ImageBackground
-          source={require('../assets/imgs/Rectangle981phptp.png')}
+          source={require('../../assets/imgs/Rectangle981phptp.png')}
           resizeMode="cover"
           style={styles.image}>
           <View>
             <Image
-              source={require('../assets/imgs/Group10786phptp.png')}
+              source={require('../../assets/imgs/Group10786phptp.png')}
               resizeMode="cover"
               style={{
                 height: 50,
