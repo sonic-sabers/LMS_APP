@@ -2,7 +2,8 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Appnavigator from './Appnavigator';
 import Authnavigator from './Authnavigator';
-let x = 0;
+//put 1 for login 2 for Home screen
+let login = 0;
 
 export default function Appcontainer({login}) {
   return (

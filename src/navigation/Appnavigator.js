@@ -11,26 +11,30 @@ import {Bottomtab} from '../screens';
 const screenOptionStyle = {
   headerShown: false,
 };
+
+import Drawercontent from '../screens/Appscreens/Drawercontent';
 import {LogBox} from 'react-native';
+
+
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ]);
-function Feed({navigation}) {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Feed Screen</Text>
-      <Button
-        title="Open drawer"
-        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-      />
-      <Button
-        title="Toggle drawer"
-        onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-      />
-    </View>
-  );
-}
+// function Feed({navigation}) {
+//   return (
+//     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+//       <Text>Feed Screen</Text>
+//       <Button
+//         title="Open drawer"
+//         onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+//       />
+//       <Button
+//         title="Toggle drawer"
+//         onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+//       />
+//     </View>
+//   );
+// }
 
 function Notifications() {
   return (
@@ -44,10 +48,10 @@ const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
   return (
-    <Drawer.Navigator
-      // drawerContent={(props) => <CustomDrawerContent {...props} />}
+    <Drawer.Navigator 
+      drawerContent={(props) => <Drawercontent {...props} />}
       screenOptions={screenOptionStyle}>
-      <Drawer.Screen name="Feed" component={Bottomtab} />
+      <Drawer.Screen name="Bottomtab" component={Bottomtab} />
       <Drawer.Screen name="Notifications" component={Notifications} />
     </Drawer.Navigator>
   );
