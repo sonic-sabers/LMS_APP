@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, StatusBar,Button} from 'react-native';
+import {Text, View, StatusBar, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -66,6 +66,21 @@ function MyTabs() {
         inactiveTintColor: 'lightgray',
         style: {},
       }}
+//       tabBarStyle= {
+// {
+//     shadowOpacity: 0.58,
+//     shadowRadius: 16.0,
+//     elevation: 24,
+//     borderTopLeftRadius: 21,
+//     borderTopRightRadius: 21,
+//     backgroundColor: '#fff',
+//     position: 'absolute',
+//     bottom: 0,
+//     padding: 10,
+//     width: '100%',
+//     height: 84,
+//     zIndex: 0,
+// }}
       barStyle={{
         backgroundColor: '#f9f9f9',
         position: 'absolute',
@@ -74,6 +89,11 @@ function MyTabs() {
         borderTopRightRadius: 20,
         borderBottomRightRadius: 5,
         borderBottomLeftRadius: 5,
+        elevation: 3,
+        shadowOffset: {width: 0, height: 5},
+        shadowColor: '#000',
+        shadowOpacity: 0.4,
+        position: 'relative',
       }}>
       <Tab.Screen
         name="Homescreen"
@@ -81,6 +101,14 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color}) => <Icon name="home" color={color} size={24} />,
+        }}
+      />
+      <Tab.Screen
+        name="Homescreen1"
+        component={Homescreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color}) => <Icon name="search" color={color} size={24} />,
         }}
       />
       <Tab.Screen

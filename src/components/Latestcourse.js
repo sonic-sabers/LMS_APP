@@ -24,19 +24,31 @@ export default class LatestLatestcourse extends Component {
       return (
         <TouchableOpacity
           key={item.id}
-          style={{flex: 1, marginRight: 5, width: 160,backgroundColor:"#F8F8F8",padding:10,borderRadius:10}}
+          style={{
+            flex: 1,
+            marginRight: 5,
+            width: 160,
+            backgroundColor: '#F8F8F8',
+            padding: 10,
+            borderRadius: 10,
+            elevation: 2,
+            shadowOffset: {width: 0, height: 3},
+            shadowColor: '#000',
+            shadowOpacity: 0.5,
+            position: 'relative',
+          }}
           onPress={() => alert('Its an alert')}>
           <Image
             source={require('../assets/imgs/unsplash_1.png')}
             resizeMode="cover"
             style={{
               // flex: 1,
-              height: 115,
-              width: 150,
+              height: 110,
+              width: 160,
               // marginHorizontal: 9.5,
               borderRadius: 5,
-              marginTop:-10,
-              marginLeft:-10
+              marginTop: -10,
+              marginLeft: -10,
               // justifyContent: 'center',
               // alignItems: 'center',
             }}
@@ -51,7 +63,7 @@ export default class LatestLatestcourse extends Component {
               alignItems: 'center',
               marginTop: -100,
               marginBottom: 100,
-              marginLeft:-10,
+              marginLeft: -10,
             }}>
             <Text
               style={{
@@ -139,8 +151,8 @@ export default class LatestLatestcourse extends Component {
           horizontal
           showsHorizontalScrollIndicator={false}
           style={{
-            paddingLeft: 10,marginLeft:-10
-
+            paddingLeft: 10,
+            marginLeft: -10,
           }}>
           {items}
         </ScrollView>

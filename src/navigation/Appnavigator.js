@@ -7,7 +7,7 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import {Bottomtab} from '../screens';
+import {Bottomtab,Notifications} from '../screens';
 const screenOptionStyle = {
   headerShown: false,
 };
@@ -36,13 +36,13 @@ LogBox.ignoreLogs([
 //   );
 // }
 
-function Notifications() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Notifications Screen</Text>
-    </View>
-  );
-}
+// function Notifications() {
+//   return (
+//     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+//       <Text>Notifications Screen</Text>
+//     </View>
+//   );
+// }
 
 const Drawer = createDrawerNavigator();
 
@@ -59,7 +59,7 @@ function MyDrawer() {
 
 export default function Appnavigator() {
   return (
-    <View style={{flex: 1, height: '100%', width: '100%', marginBottom:-15}}>
+    <View style={{flex: 1, marginBottom:-20}}>
       <NavigationContainer independent={true}>
         <MyDrawer />
       </NavigationContainer>

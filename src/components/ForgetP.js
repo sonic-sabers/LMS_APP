@@ -24,6 +24,7 @@ import PasswordInputText from 'react-native-hide-show-password-input';
 import {LogBox} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
+// const navigation = useNavigation();
 
 // export default function Loginscreen({navigation}) {
 export default function ForgetP({ScreenName}) {
