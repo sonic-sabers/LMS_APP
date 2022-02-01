@@ -11,7 +11,11 @@ export default function Mybutton({screenName, submitting, text, onPress}) {
     <View>
       <TouchableOpacity
         // onPress={() => navigation.navigate(screenName)}
-        onPress={!submitting ? onPress : null}>
+        onPress={!submitting ? onPress : null}
+        // onPress={
+        //   (!submitting ? onPress : null,
+        //   screenName ? () => navigation.navigate(screenName) : null)}
+        >
         <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 1, y: 0}}

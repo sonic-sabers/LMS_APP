@@ -40,7 +40,8 @@ export default function Register({navigation}) {
 
   //.matches(/^[0-9]+$/, "Must be only digits")
   const phoneRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+    // /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+    /^(?=.*[A-Za-z])[A-Za-z\d@$!%*#?&]{8,}$/;
   const validationSchema = Yup.object({
     fullname: Yup.string()
       .trim()
@@ -50,8 +51,16 @@ export default function Register({navigation}) {
     email: Yup.string().email('Invalid email!').required('Email is required!'),
     password: Yup.string()
       .trim()
-      .min(8, 'Password is too short!')
-      .required('Password is required!'),
+      .required('Password is required!')
+      // .matches(
+      //   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      //   'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
+      // )
+      .matches(
+        phoneRegExp,
+        'Must Contain 8 Characters, One Uppercase, One Lowercase',
+      )
+      .min(8, 'Password is too short!'),
     confirmPassword: Yup.string().equals(
       [Yup.ref('password'), null],
       'Password does not match!',
@@ -87,27 +96,26 @@ export default function Register({navigation}) {
 
   const [error, setError] = useState('');
 
-//   const signUp = async (values, formikActions) => {
-//     const res = await client.post('/create-user', {
-//       ...values,
-//     });
-//     if (res.data.success) {
-//       const signInRes = await client.post('/sign-in', {
-//         email: values.email,
-//         password: values.password,
-//       });
-//       if (signInRes.data.success) {
-//         navigation.dispatch(
-//           StackActions.replace('ImageUpload', {
-//             token: signInRes.data.token,
-//           })
-//         );
-//       }
-//     }
-//     formikActions.resetForm();
-//     formikActions.setSubmitting(false);
-//   };
-
+  //   const signUp = async (values, formikActions) => {
+  //     const res = await client.post('/create-user', {
+  //       ...values,
+  //     });
+  //     if (res.data.success) {
+  //       const signInRes = await client.post('/sign-in', {
+  //         email: values.email,
+  //         password: values.password,
+  //       });
+  //       if (signInRes.data.success) {
+  //         navigation.dispatch(
+  //           StackActions.replace('ImageUpload', {
+  //             token: signInRes.data.token,
+  //           })
+  //         );
+  //       }
+  //     }
+  //     formikActions.resetForm();
+  //     formikActions.setSubmitting(false);
+  //   };
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -149,6 +157,7 @@ export default function Register({navigation}) {
                 color: colors.black,
                 marginTop: 10,
                 marginLeft: 10,
+                marginBottom: 10,
               }}>
               Enter your details
             </Text>
@@ -271,38 +280,16 @@ export default function Register({navigation}) {
                         flexDirection: 'row',
                         alignItems: 'center',
                         justifyContent: 'flex-end',
-
+                        marginTop: -42,
+                        marginBottom: 40,
                         marginRight: 16,
                       }}>
-                      {!touched.password || errors.password ? (
-                        //For error time
-                        <>
-                          <View
-                            style={{
-                              marginTop: -48,
-                              marginBottom: 25,
-                            }}>
-                            <Icon
-                              name={hidePass ? 'eye-slash' : 'eye'}
-                              size={20}
-                              color="grey"
-                              onPress={() => setHidePass(!hidePass)}
-                            />
-                          </View>
-                        </>
-                      ) : (
-                        //For non error time
-                        <>
-                          <View style={{marginTop: -39, marginBottom: 27}}>
-                            <Icon
-                              name={hidePass ? 'eye-slash' : 'eye'}
-                              size={20}
-                              color="grey"
-                              onPress={() => setHidePass(!hidePass)}
-                            />
-                          </View>
-                        </>
-                      )}
+                      <Icon
+                        name={hidePass ? 'eye-slash' : 'eye'}
+                        size={20}
+                        color="grey"
+                        onPress={() => setHidePass(!hidePass)}
+                      />
                     </View>
 
                     <Mytextinput
@@ -321,62 +308,18 @@ export default function Register({navigation}) {
                         flexDirection: 'row',
                         alignItems: 'center',
                         justifyContent: 'flex-end',
-
-                        marginRight: 16,
-                      }}>
-                      {!touched.confirmPassword || errors.confirmPassword ? (
-                        //For error time
-                        <>
-                          <View
-                            style={{
-                              marginTop: -48,
-                              marginBottom: 25,
-                            }}>
-                            <Icon
-                              name={hidecPass ? 'eye-slash' : 'eye'}
-                              size={20}
-                              color="grey"
-                              onPress={() => setHidecPass(!hidecPass)}
-                            />
-                          </View>
-                        </>
-                      ) : (
-                        //For non error time
-                        <>
-                          <View style={{marginTop: -39, marginBottom: 27}}>
-                            <Icon
-                              name={hidecPass ? 'eye-slash' : 'eye'}
-                              size={20}
-                              color="grey"
-                              onPress={() => setHidecPass(!hidecPass)}
-                            />
-                          </View>
-                        </>
-                      )}
-                    </View>
-                    {/* <View
-                      style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'flex-end',
-                        marginTop: -45,
-                        marginBottom: 20,
+                        marginTop: -42,
+                        marginBottom: 40,
                         marginRight: 16,
                       }}>
                       <Icon
-                        name={hidecPass ? 'eye-slash' : 'eye'}
+                        name={hidePass ? 'eye-slash' : 'eye'}
                         size={20}
                         color="grey"
-                        onPress={() => setHidecPass(!hidecPass)}
+                        onPress={() => setHidePass(!hidePass)}
                       />
-                      {touched.confirmPassword || errors.confirmPassword ? (
-                        <>
-                          <View style={{paddingBottom: 30, marginTop: -10}} />
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                    </View> */}
+                    </View>
+
                     <View
                       style={{
                         flexDirection: 'row',
@@ -395,7 +338,7 @@ export default function Register({navigation}) {
                         Privacy Policy.
                       </Text>
                     </View>
-                    <View style={{marginTop: 10}}>
+                    {/* <View style={{marginTop: 10}}>
                       {!checked ? (
                         <>
                           <Text
@@ -434,11 +377,18 @@ export default function Register({navigation}) {
                             submitting={isSubmitting}
                             onPress={handleSubmit}
                             text="Continue"
+                            errorstate={checked}
                           />
                         </>
                       )}
-                    </View>
-
+                    </View> */}
+                    <Mybutton
+                      // screenName="Otpscreen"
+                      submitting={isSubmitting}
+                      onPress={handleSubmit}
+                      text="Continue"
+                      checked
+                    />
                     <View
                       style={{
                         alignSelf: 'center',

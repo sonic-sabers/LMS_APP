@@ -36,13 +36,13 @@ LogBox.ignoreLogs([
 //   );
 // }
 
-// function Notifications() {
-//   return (
-//     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-//       <Text>Notifications Screen</Text>
-//     </View>
-//   );
-// }
+function Profile() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Notifications Screen</Text>
+    </View>
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
@@ -53,6 +53,7 @@ function MyDrawer() {
       screenOptions={screenOptionStyle}>
       <Drawer.Screen name="Bottomtab" component={Bottomtab} />
       <Drawer.Screen name="Notifications" component={Notifications} />
+      <Drawer.Screen name="Profile" component={Profile} />
     </Drawer.Navigator>
   );
 }

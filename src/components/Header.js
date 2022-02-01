@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 let Username = 'My name';
 
-export default function Header() {
+export default function Header({dropdown}) {
   return (
     <View
       style={{
@@ -63,8 +63,13 @@ export default function Header() {
           <Text style={styles.text2}>What do you want to learn today?</Text>
         </View>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text> DropDown</Text>
-          <Text> || Filter</Text>
+          {!dropdown ? (
+            <View>
+              <Text> DropDown || </Text>
+            </View>
+          ) : null}
+
+          <Text> Filter</Text>
         </View>
       </View>
     </View>

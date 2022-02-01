@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground} from 'react-native';
+import {View, StyleSheet, ImageBackground,TouchableOpacity} from 'react-native';
 import {
   useTheme,
   Avatar,
@@ -15,37 +15,39 @@ import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
 import {Notifications, Mycourse, Course} from '..';
 
-
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ImageBackgrounds} from '../../components';
-import { colors } from '../../constants';
+import {colors} from '../../constants';
 export default function Drawercontent(props) {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
         source={require('../../assets/imgs/Background.png')}
         resizeMode="cover"
-        style={{flex:1}}>
+        style={{flex: 1}}>
         <DrawerContentScrollView {...props}>
           <View style={styles.drawerContent}>
-            <View style={styles.userInfoSection}>
-              <View
-                style={{
-                  marginTop: 35,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <Avatar.Image
-                  source={{
-                    uri: 'https://cdn.pixabay.com/photo/2020/05/09/13/29/photographer-5149664__340.jpg',
-                  }}
-                  size={90}
-                />
-                <Title style={styles.title}>Welcome, User Name</Title>
-              </View>
-            </View>
-
             <Drawer.Section style={styles.drawerSection}>
+              <TouchableOpacity style={styles.userInfoSection} 
+                 onPress={() => {
+                  props.navigation.navigate('Favourite');
+                }}>
+                <View
+                  style={{
+                    marginTop: 35,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Avatar.Image
+                    source={{
+                      uri: 'https://cdn.pixabay.com/photo/2020/05/09/13/29/photographer-5149664__340.jpg',
+                    }}
+                    size={90}
+                  />
+                  <Title style={styles.title}>Welcome, User Name</Title>
+                </View>
+              </TouchableOpacity>
+
               <DrawerItem
                 style={{marginBottom: -5}}
                 icon={({color, size}) => (
@@ -96,7 +98,7 @@ export default function Drawercontent(props) {
                 )}
                 label="Offer"
                 onPress={() => {
-                  props.navigation.navigate('Profile');
+                  props.navigation.navigate('Notifications');
                 }}
                 style={{marginBottom: -5}}
               />
@@ -148,8 +150,18 @@ export default function Drawercontent(props) {
               <Icon name="exit-to-app" color={colors.primary} size={size} />
             )}
             // label="Sign Out"
-            label={() => <Text style={{ color: colors.primary,fontSize:16,fontWeight:"bold",marginLeft:-10 }}>Logout</Text>} 
-            style={{labelColor:colors.primary}}
+            label={() => (
+              <Text
+                style={{
+                  color: colors.primary,
+                  fontSize: 16,
+                  fontWeight: 'bold',
+                  marginLeft: -10,
+                }}>
+                Logout
+              </Text>
+            )}
+            style={{labelColor: colors.primary}}
             onPress={() => {
               signOut();
             }}

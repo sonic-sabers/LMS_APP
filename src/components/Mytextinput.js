@@ -12,7 +12,7 @@ export default Mytextinput = props => {
         placeholder={placeholder}
         style={styles.input}
       />
-   
+
       {error ? (
         <Text
           style={{
@@ -23,7 +23,15 @@ export default Mytextinput = props => {
           }}>
           {error}
         </Text>
-      ) : null}
+      ) : (
+        <Text
+          style={{
+            color: 'red',
+            fontSize: 13.5,
+            marginBottom: -10,
+            marginLeft: 11,
+          }}></Text>
+      )}
     </>
   );
 };
@@ -36,8 +44,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderBottomWidth: 1.5,
     borderColor: '#CFD1D4',
-    marginVertical: 9,
+    // marginVertical: 9,
+    marginTop:6,
     fontSize: 18,
+    marginBottom:4,
   },
 });
 

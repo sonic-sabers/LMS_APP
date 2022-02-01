@@ -28,7 +28,7 @@ export default function Carouselscreen({navigation}) {
 								marginTop: 20,
 								marginRight: 20,
 							}}
-							onPress={() => navigation.navigate(Loginscreen)}>
+							onPress={() => navigation.navigate('Loginscreen')}>
 							<Text style={{color: colors.primary, fontWeight: '700'}}> Skip </Text>
 							<Icon name="arrow-right" size={18} color={colors.primary} />
 						</TouchableOpacity>

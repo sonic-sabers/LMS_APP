@@ -13,25 +13,36 @@ import Search from 'react-native-search-box';
 import {Header, ImageBackgrounds, Mycourses} from '../../components';
 import {colors} from '../../constants';
 import Data from '../../constants/Data';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 class Mycourse extends Component {
   render() {
     return (
       <>
-        <View style={{padding: 8}}>
-          <Header />
-
-          <View style={{magrinVertical: 20, marginTop: 10}}>
-            <Search />
-          </View>
+        <View style={{}}>
+          <Header dropdown />
         </View>
         <View style={styles.enroll}>
-          <Text
+          <View style={{margin: 10}}>
+            <Icon name="list-alt" size={28} color={colors.white} />
+          </View>
+          <View
             style={{
-              alignSelf: 'center',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              flex: 1,
+              marginRight: 10,
             }}>
-            To add Enroll
-          </Text>
+            <View>
+              <Text
+                style={{color: colors.white, fontWeight: '700', fontSize: 15}}>
+                My Enrollments
+              </Text>
+            </View>
+            <TouchableOpacity>
+              <Icon name="arrow-right" size={20} color={colors.white} />
+            </TouchableOpacity>
+          </View>
         </View>
         <Mycourses />
       </>
@@ -50,12 +61,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   enroll: {
-    justifyContent: 'center',
-    marginTop: 10,
-    height: 40,
+    // justifyContent: 'center',
+    // marginTop: 10,
+    // height: 40,
     backgroundColor: '#1A21BC',
     width: '100%',
     alignItems: 'center',
-    paddingRight: -20,
+    // paddingRight: -20,
+    flexDirection: 'row',
   },
 });

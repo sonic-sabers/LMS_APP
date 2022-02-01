@@ -123,7 +123,7 @@ export default function Loginscreen({navigation}) {
                       placeholder="Enter Password"
                       secureTextEntry={hidePass ? true : false}
                     />
-                    <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'flex-end',marginTop:-37,marginBottom:20,marginRight:16}}>
+                    <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'flex-end',marginTop:-42,marginBottom:40,marginRight:16}}>
                     <Icon
                       name={hidePass ? 'eye-slash' : 'eye'}
                       size={20}
