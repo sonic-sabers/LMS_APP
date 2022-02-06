@@ -1,5 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground,TouchableOpacity} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 import {
   useTheme,
   Avatar,
@@ -12,13 +17,16 @@ import {
   Switch,
 } from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-
+import {useDispatch, useSelector} from 'react-redux';
 import {Notifications, Mycourse, Course} from '..';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ImageBackgrounds} from '../../components';
 import {colors} from '../../constants';
+import {useNavigation} from '@react-navigation/native';
 export default function Drawercontent(props) {
+  const token = useSelector(state => state.auth.token);
+  const navigation = useNavigation();
   return (
     <View style={{flex: 1}}>
       <ImageBackground
@@ -28,9 +36,10 @@ export default function Drawercontent(props) {
         <DrawerContentScrollView {...props}>
           <View style={styles.drawerContent}>
             <Drawer.Section style={styles.drawerSection}>
-              <TouchableOpacity style={styles.userInfoSection} 
-                 onPress={() => {
-                  props.navigation.navigate('Favourite');
+              <TouchableOpacity
+                style={styles.userInfoSection}
+                onPress={() => {
+                  props.navigation.navigate('Myprofile');
                 }}>
                 <View
                   style={{
@@ -144,29 +153,58 @@ export default function Drawercontent(props) {
             </Drawer.Section>
           </View>
         </DrawerContentScrollView>
-        <Drawer.Section style={styles.bottomDrawerSection}>
-          <DrawerItem
-            icon={({color, size}) => (
-              <Icon name="exit-to-app" color={colors.primary} size={size} />
-            )}
-            // label="Sign Out"
-            label={() => (
-              <Text
-                style={{
-                  color: colors.primary,
-                  fontSize: 16,
-                  fontWeight: 'bold',
-                  marginLeft: -10,
-                }}>
-                Logout
-              </Text>
-            )}
-            style={{labelColor: colors.primary}}
-            onPress={() => {
-              signOut();
-            }}
-          />
-        </Drawer.Section>
+        {token ? (
+          <Drawer.Section style={styles.bottomDrawerSection}>
+            <DrawerItem
+              icon={({color, size}) => (
+                <Icon name="exit-to-app" color={colors.primary} size={size} />
+              )}
+              // label="Sign Out"
+              label={() => (
+                <Text
+                  style={{
+                    color: colors.primary,
+                    fontSize: 16,
+                    fontWeight: 'bold',
+                    marginLeft: -10,
+                    fontFamily:'poppins',
+                    
+                  }}>
+                  Logout
+                </Text>
+              )}
+              style={{labelColor: colors.primary}}
+              onPress={() => {
+                signOut();
+              }}
+            />
+          </Drawer.Section>
+        ) : (
+          <Drawer.Section style={styles.bottomDrawerSection}>
+            <DrawerItem
+              icon={({color, size}) => (
+                <Icon name="exit-to-app" color={colors.primary} size={size} />
+              )}
+              // label="Sign Out"
+              label={() => (
+                <Text
+                  style={{
+                    color: colors.primary,
+                    fontSize: 16,
+                    fontWeight: 'bold',
+                    marginLeft: -10,
+                    fontFamily:'poppins',
+                  }}>
+                  Login
+                </Text>
+              )}
+              style={{labelColor: colors.primary}}
+              onPress={() => {
+                navigation.navigate('LoginScreen');
+              }}
+            />
+          </Drawer.Section>
+        )}
       </ImageBackground>
     </View>
   );

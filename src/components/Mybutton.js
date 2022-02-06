@@ -14,8 +14,9 @@ export default function Mybutton({screenName, submitting, text, onPress}) {
         onPress={!submitting ? onPress : null}
         // onPress={
         //   (!submitting ? onPress : null,
-        //   screenName ? () => navigation.navigate(screenName) : null)}
-        >
+        //   screenName ? () => navigation.navigate(screenName) : null)
+        // }
+      >
         <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 1, y: 0}}
@@ -32,7 +33,13 @@ export default function Mybutton({screenName, submitting, text, onPress}) {
               },
               {color},
             ]}>
-            <Text style={[{fontSize: 16, fontWeight: '500',color:"white"},{color},]}>{text}</Text>
+            <Text
+              style={[
+                {fontSize: 16, fontWeight: '500', color: 'white',   fontFamily:'poppins',},
+                {color},
+              ]}>
+              {text}
+            </Text>
           </View>
         </LinearGradient>
       </TouchableOpacity>

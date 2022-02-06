@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   Image,
@@ -9,7 +9,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import {colors} from '../constants';
+import { colors } from '../constants';
 import Data from '../constants/Data';
 export default class LatestLatestcourse extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ export default class LatestLatestcourse extends Component {
             padding: 10,
             borderRadius: 10,
             elevation: 2,
-            shadowOffset: {width: 0, height: 3},
+            shadowOffset: { width: 0, height: 3 },
             shadowColor: '#000',
             shadowOpacity: 0.5,
             position: 'relative',
@@ -62,7 +62,7 @@ export default class LatestLatestcourse extends Component {
               justifyContent: 'center',
               alignItems: 'center',
               marginTop: -100,
-              marginBottom: 100,
+              marginBottom: 85,
               marginLeft: -10,
             }}>
             <Text
@@ -70,6 +70,7 @@ export default class LatestLatestcourse extends Component {
                 fontSize: 10,
                 color: colors.white,
                 alignSelf: 'center',
+                fontFamily: 'poppins',
               }}>
               HOT
             </Text>
@@ -80,6 +81,7 @@ export default class LatestLatestcourse extends Component {
                 fontSize: 15,
                 fontWeight: '800',
                 textAlign: 'left',
+                fontFamily: 'poppins',
               }}>
               {item.Latestcourse}
             </Text>
@@ -88,6 +90,7 @@ export default class LatestLatestcourse extends Component {
                 fontSize: 12,
                 fontWeight: '400',
                 textAlign: 'left',
+                fontFamily: 'poppins',
               }}>
               {item.Trainer}
             </Text>
@@ -102,6 +105,7 @@ export default class LatestLatestcourse extends Component {
                   fontWeight: '400',
                   textAlign: 'left',
                   marginLeft: 2,
+                  fontFamily: 'poppins',
                 }}>
                 {item.rating} - stars
               </Text>
@@ -110,6 +114,7 @@ export default class LatestLatestcourse extends Component {
                   fontSize: 11,
                   fontWeight: '400',
                   textAlign: 'left',
+                  fontFamily: 'poppins',
                 }}>
                 {item.reviews}
               </Text>
@@ -138,12 +143,14 @@ export default class LatestLatestcourse extends Component {
       <View>
         <Text
           style={{
-            fontSize: 20,
-            fontWeight: '500',
+            fontSize: 18,
+            fontWeight: '600',
             textAlign: 'left',
             // marginLeft: 10,
             color: '#111',
             marginVertical: 10,
+            fontFamily: 'poppins',
+
           }}>
           Latest course
         </Text>
@@ -156,24 +163,30 @@ export default class LatestLatestcourse extends Component {
           }}>
           {items}
         </ScrollView>
-        <TouchableOpacity onPress={() => alert('Its an alert')}>
-          <View
-            style={{
-              justifyContent: 'flex-end',
-              flexDirection: 'row',
-              marginTop: 10,
-            }}>
-            <Text
+
+        {this.seemore ?
+          <TouchableOpacity style={{
+            marginRight: 10
+          }} onPress={() => alert('Its an alert')}>
+            <View
               style={{
-                fontWeight: '900',
-                color: '#1A21BC',
-                fontSize: 18,
-                marginLeft: 10,
+                justifyContent: 'flex-end',
+                flexDirection: 'row',
+                marginTop: 10,
               }}>
-              see more
-            </Text>
-          </View>
-        </TouchableOpacity>
+              <Text
+                style={{
+                  fontWeight: '900',
+                  color: '#1A21BC',
+                  fontSize: 18,
+                  marginLeft: 10,
+                }}>
+                see more
+              </Text>
+            </View>
+          </TouchableOpacity>
+          : null
+        }
       </View>
     );
   }

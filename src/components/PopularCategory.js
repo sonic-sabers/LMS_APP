@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   Image,
@@ -8,8 +8,9 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import {colors} from '../constants';
+import { colors } from '../constants';
 import Data from '../constants/Data';
+import { useNavigation } from '@react-navigation/native';
 
 class PopularCategory extends Component {
   constructor(props) {
@@ -17,17 +18,18 @@ class PopularCategory extends Component {
     this.initData = Data;
     this.state = {
       data: this.initData,
+      dataSource: [],
     };
   }
   render() {
     const items = this.state.data.map(item => {
       return (
-        <View key={item.id} style={{marginTop: 10}}>
+        <View key={item.id} style={{ marginTop: 10 }}>
           <ImageBackground
             key={item.id}
             source={require('../assets/imgs/imgIMG.png')}
             resizeMode="cover"
-            imageStyle={{ borderRadius: 6}}
+            imageStyle={{ borderRadius: 6 }}
             style={styles.image}>
             <TouchableOpacity
               onPress={() => alert('You choose ' + item.category)}>
@@ -47,15 +49,17 @@ class PopularCategory extends Component {
           horizontal
           showsHorizontalScrollIndicator={false}
           style={{
-            paddingLeft: 10,marginLeft:-10
+            paddingLeft: 10, marginLeft: -10
           }}>
           {items}
         </ScrollView>
-        <TouchableOpacity onPress={() => alert('Its an alert')}>
+        {/* <TouchableOpacity style={{
+          marginRight: 10
+        }} onPress={() => this.navigation.navigate('Homescreen')}>
           <View style={styles.opacity}>
             <Text style={styles.seemore}>see more</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     );
   }
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     flexDirection: 'row',
     marginTop: 10,
+
   },
   image: {
     flex: 1,
@@ -107,5 +112,6 @@ const styles = StyleSheet.create({
     color: '#1A21BC',
     fontSize: 18,
     marginLeft: 10,
+
   },
 });

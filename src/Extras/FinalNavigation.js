@@ -5,15 +5,16 @@ import {View, Text, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 // import StackN from './src/navigator/Navigation';
 import {createStackNavigator} from '@react-navigation/stack';
+import {Loginscreen} from '../screens';
 
 const Stack = createStackNavigator();
 const screenOptionStyle = {
   headerShown: false,
 };
 
-function HomeScreen({ navigation }) {
+function HomeScreen({navigation}) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Button
         title="Go to Profile"
         onPress={() => navigation.navigate('Profile')}
@@ -22,9 +23,9 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function ProfileScreen({ navigation }) {
+function ProfileScreen({navigation}) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Button
         title="Go to Notifications"
         onPress={() => navigation.navigate('Notifications')}
@@ -34,7 +35,6 @@ function ProfileScreen({ navigation }) {
   );
 }
 
-
 export default function App() {
   return (
     <NavigationContainer>
@@ -43,6 +43,5 @@ export default function App() {
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }

@@ -107,7 +107,9 @@ export default class TTrainers extends Component {
           }}>
           {items}
         </ScrollView>
-        <TouchableOpacity onPress={() => alert('Its an alert')}>
+        <TouchableOpacity style={{
+          marginRight: 10
+        }}onPress={() => alert('Its an alert')}>
           <View
             style={{
               justifyContent: 'flex-end',
@@ -121,6 +123,7 @@ export default class TTrainers extends Component {
                 color: '#1A21BC',
                 fontSize: 18,
                 marginLeft: 10,
+                fontFamily: 'poppins'
               }}>
               see more
             </Text>

@@ -35,7 +35,7 @@ class Mycourse extends Component {
             }}>
             <View>
               <Text
-                style={{color: colors.white, fontWeight: '700', fontSize: 15}}>
+                style={{color: colors.white, fontWeight: '700', fontSize: 15,   fontFamily:'poppins',}}>
                 My Enrollments
               </Text>
             </View>

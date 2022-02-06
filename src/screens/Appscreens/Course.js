@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import {
   StyleSheet,
   Button,
@@ -10,44 +11,58 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   SafeAreaView,
-  ImageBackground,
+  ImageBackground, FlatList,
 } from 'react-native';
 import {
   ImageBackgrounds,
   Loginbutton,
   Mybutton,
   Socialbutton,
-  Toinput,
+  Toinput,Myheader,
 } from '../../components';
 import Icon from 'react-native-vector-icons/Feather';
-import {colors} from '../../constants';
+import { colors } from '../../constants';
 
-export default function Course({navigation}) {
+export default function Course({ navigation }) {
+  const [people, setPeople] = useState([
+    { name: 'Outcome', id: '1' },
+    { name: 'Sessions', id: '2' },
+    { name: 'Requirements', id: '3' },
+    { name: 'Curriculam', id: '4' },
+    { name: 'Outcome', id: '5' },
+    { name: 'Sessions', id: '6' },
+    { name: 'Requirements', id: '7' },
+  ]);
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
-      <View
-        style={{
-          flexDirection: 'row',
-          padding: 20,
-          alignItems: 'center',
-          marginTop: -10,
-        }}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name="chevron-left" size={28} color="#000" />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: '500',
-            color: colors.black,
-            alignSelf: 'center',
-            marginLeft: 7,
-          }}>
-          Course Details
-        </Text>
-        <Text></Text>
-      </View>
+    <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
+      <Myheader Screenname="Homescreen" Headername="Course Details"/>
       <ScrollView>
+        <FlatList
+          // numColumns={2}
+          keyExtractor={(item) => item.id}
+          data={people}
+          renderItem={({ item }) => (
+            <TouchableOpacity style={{
+              borderColor: colors.primary,
+              borderWidth: 1,
+              borderRadius: 20,
+              paddingHorizontal: 7,
+              paddingVertical:3,
+              marginLeft: 10,
+              marginTop: 10,
+              marginVertical: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontFamily:'poppins',
+            }}
+              onPress={() => alert(item.name)}
+            >
+              <Text style={{ fontSize: 14, fontWeight: '400' }}>{item.name}</Text>
+            </TouchableOpacity>
+          )}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        />
         <ImageBackground
           source={require('../../assets/imgs/Rectangle981phptp.png')}
           resizeMode="cover"
@@ -76,12 +91,13 @@ export default function Course({navigation}) {
           </View>
         </ImageBackground>
 
-        <View style={{padding: 10}}>
+        <View style={{ padding: 10 }}>
           <Text
             style={{
               fontSize: 22,
               fontWeight: '500',
               color: colors.black,
+              fontFamily:'poppins',
             }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Text>
@@ -89,8 +105,9 @@ export default function Course({navigation}) {
           <Text
             style={{
               fontSize: 15,
-              fontWeight: '500',
+              fontWeight: '400',
               marginTop: 10,
+              fontFamily:'poppins',
             }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id suscipit
             at rutrum ultricies. Ut vitae elit nisi, quis tortor porta. Gravida
@@ -135,7 +152,7 @@ export default function Course({navigation}) {
             </View>
           </View>
           <Text>Languages and last updates</Text>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <View>
               <Text>$ 599.00</Text>
             </View>
@@ -143,8 +160,8 @@ export default function Course({navigation}) {
               <Text>Status Drop {'\n'}down</Text>
             </View>
           </View>
-          <View style={{flexDirection: 'row', marginHorizontal: 10}}>
-            <TouchableOpacity style={{flex: 1.2, marginLeft: -30}}>
+          <View style={{ flexDirection: 'row', marginHorizontal: 10 }}>
+            <TouchableOpacity style={{ flex: 1.2, marginLeft: -30 }}>
               <Mybutton text="But Now" />
             </TouchableOpacity>
             <View
@@ -160,7 +177,7 @@ export default function Course({navigation}) {
               <Text>Add to Cart</Text>
             </View>
           </View>
-          <View style={{marginTop: 10}}>
+          <View style={{ marginTop: 10 }}>
             <Text
               style={{
                 fontSize: 22,
@@ -170,17 +187,7 @@ export default function Course({navigation}) {
               What you'll learn
             </Text>
             <View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Icon name="check" size={25} color="#222" />
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontWeight: '500',
-                  }}>
- Lorem ipsum dolor sit amet
-                </Text>
-              </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Icon name="check" size={25} color="#222" />
                 <Text
                   style={{
@@ -190,7 +197,17 @@ export default function Course({navigation}) {
                   Lorem ipsum dolor sit amet
                 </Text>
               </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Icon name="check" size={25} color="#222" />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: '500',
+                  }}>
+                  Lorem ipsum dolor sit amet
+                </Text>
+              </View>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Icon name="check" size={25} color="#222" />
                 <Text
                   style={{
@@ -210,7 +227,7 @@ export default function Course({navigation}) {
               Requirements
             </Text>
             <View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Icon name="check" size={25} color="#222" />
                 <Text
                   style={{
@@ -227,7 +244,7 @@ export default function Course({navigation}) {
           <Text>sdfvfddfb </Text>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView >
   );
 }
 

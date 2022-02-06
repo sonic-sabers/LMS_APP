@@ -39,7 +39,7 @@ export default function Register({navigation}) {
   const [hidecPass, setHidecPass] = React.useState(true);
 
   //.matches(/^[0-9]+$/, "Must be only digits")
-  const phoneRegExp =
+  const Passregx =
     // /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
     /^(?=.*[A-Za-z])[A-Za-z\d@$!%*#?&]{8,}$/;
   const validationSchema = Yup.object({
@@ -57,7 +57,7 @@ export default function Register({navigation}) {
       //   'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
       // )
       .matches(
-        phoneRegExp,
+        Passregx,
         'Must Contain 8 Characters, One Uppercase, One Lowercase',
       )
       .min(8, 'Password is too short!'),
@@ -79,7 +79,7 @@ export default function Register({navigation}) {
     number: Yup.string()
       .required('required')
       .matches(/^[0-9]+$/, 'Must be only digits')
-      .matches(phoneRegExp, 'Phone number is not valid')
+      // .matches(phoneRegExp, 'Phone number is not valid')
       .min(10, 'to short')
       .max(10, 'to long'),
   });

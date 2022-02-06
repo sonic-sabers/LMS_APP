@@ -15,26 +15,26 @@ export default Mycourses = () => {
           height: 3,
         }}
         variant="primary">
-        <Tab.Item title="Online" titleStyle={{fontSize: 12}} />
-        <Tab.Item title="Live" titleStyle={{fontSize: 12}} />
         <Tab.Item title="Offline" titleStyle={{fontSize: 12}} />
+        <Tab.Item title="Online" titleStyle={{fontSize: 12}} />
+        <Tab.Item title="F2F" titleStyle={{fontSize: 12}} />
       </Tab>
 
       <TabView value={index} onChange={setIndex} animationType="spring">
         <TabView.Item style={{width: '100%'}}>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <Onlinecourse filter="Online"/>
-          </ScrollView>
-        </TabView.Item>
-        <TabView.Item style={{width: '100%'}}>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <Onlinecourse filter="F2F"/>
-          </ScrollView>
-        </TabView.Item>
-        <TabView.Item style={{width: '100%'}}>
-          <ScrollView showsVerticalScrollIndicator={false}>
+          {/* <ScrollView showsVerticalScrollIndicator={false}> */}
             <Onlinecourse filter="Offline"/>
-          </ScrollView>
+          {/* </ScrollView> */}
+        </TabView.Item>
+        <TabView.Item style={{width: '100%'}}>
+          {/* <ScrollView showsVerticalScrollIndicator={false}> */}
+            <Onlinecourse filter="Online"/>
+          {/* </ScrollView> */}
+        </TabView.Item>
+        <TabView.Item style={{width: '100%'}}>
+          {/* <ScrollView showsVerticalScrollIndicator={false}> */}
+            <Onlinecourse filter="F2F"/>
+          {/* </ScrollView> */}
         </TabView.Item>
       </TabView>
     </>

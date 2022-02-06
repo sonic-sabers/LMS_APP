@@ -28,6 +28,7 @@ import {TextInput} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import fetchService from '../../services/fetchService';
 export default function Loginscreen({navigation}) {
   React.useEffect(() => {
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
@@ -37,7 +38,7 @@ export default function Loginscreen({navigation}) {
   const [hasEmailErrors, setEmailErrors] = React.useState(false);
 
   const UserInfo = {
-    email: '',
+    email: 'sdfcsd',
     password: '',
   };
   const validationSchema = Yup.object({
@@ -48,7 +49,14 @@ export default function Loginscreen({navigation}) {
       .required('Password is required!'),
   });
   const [hidePass, setHidePass] = React.useState(true);
-
+  const handleLogin = async () => {
+    console.log('111');
+    const response = await fetchService.login(email, password);
+    console.log('response', response);
+    if (response.status) {
+      navigation.navigate('Bottomtab');
+    }
+  };
   // const submitForm = async () => {
   //   if (isValidForm()) {
   //     try {
@@ -67,10 +75,11 @@ export default function Loginscreen({navigation}) {
   //   }
   // };
 
-
   return (
     <SafeAreaView style={{flex: 1}}>
-      <ScrollView style={{backgroundColor: '#fff', flex: 1}} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={{backgroundColor: '#fff', flex: 1}}
+        showsVerticalScrollIndicator={false}>
         <View
           style={{
             padding: 24,
@@ -86,7 +95,7 @@ export default function Loginscreen({navigation}) {
                   console.log(values);
                   formikActions.resetForm();
                   formikActions.setSubmitting(false);
-                  navigation.navigate('Appnavigator');
+                  handleLogin();
                 }, 3000);
               }}
               validationSchema={validationSchema}>
@@ -123,13 +132,21 @@ export default function Loginscreen({navigation}) {
                       placeholder="Enter Password"
                       secureTextEntry={hidePass ? true : false}
                     />
-                    <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'flex-end',marginTop:-42,marginBottom:40,marginRight:16}}>
-                    <Icon
-                      name={hidePass ? 'eye-slash' : 'eye'}
-                      size={20}
-                      color="grey"
-                      onPress={() => setHidePass(!hidePass)}
-                    />
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+                        marginTop: -42,
+                        marginBottom: 40,
+                        marginRight: 16,
+                      }}>
+                      <Icon
+                        name={hidePass ? 'eye-slash' : 'eye'}
+                        size={20}
+                        color="grey"
+                        onPress={() => setHidePass(!hidePass)}
+                      />
                     </View>
 
                     <ForgetP ScreenName="Resetpass" />

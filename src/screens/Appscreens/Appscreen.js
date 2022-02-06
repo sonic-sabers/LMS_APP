@@ -18,7 +18,7 @@ LogBox.ignoreLogs([
 ]);
 function Feed({navigation}) {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',   fontFamily:'poppins',}}>
       <Text>Feed Screen</Text>
       <Button
         title="Open drawer"
@@ -35,7 +35,7 @@ function Feed({navigation}) {
 function Notifications() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Notifications Scrvfdvdfvdvf een</Text>
+      <Text>Notifications</Text>
     </View>
   );
 }

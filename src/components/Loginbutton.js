@@ -1,9 +1,9 @@
-import {StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {colors} from '../constants';
-export default function Loginbutton({screenName, text}) {
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { colors } from '../constants';
+export default function Loginbutton({ screenName, text }) {
   const navigation = useNavigation();
   return (
     <View>
@@ -14,8 +14,15 @@ export default function Loginbutton({screenName, text}) {
               fontSize: 16,
               color: colors.primary,
               fontWeight: '500',
+              fontFamily: 'poppins',
             }}>
-            Log In
+
+            {text ?
+              <>{text}</> :
+              <>
+                Log In
+              </>
+            }
           </Text>
         </View>
       </TouchableOpacity>
@@ -26,17 +33,17 @@ export default function Loginbutton({screenName, text}) {
 const styles = StyleSheet.create({
   buttons: {
     backgroundColor: colors.white,
-    width: '80%', 
+    width: '80%',
     marginHorizontal: 30,
     height: 50,
     borderRadius: 6,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius:10,
-    borderWidth:0.5,
+    borderRadius: 10,
+    borderWidth: 0.5,
     borderColor: colors.primary,
-    marginVertical:20,
-    alignSelf:'center',
-    
+    marginVertical: 20,
+    alignSelf: 'center',
+
   },
 });

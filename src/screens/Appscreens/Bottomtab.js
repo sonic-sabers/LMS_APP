@@ -1,13 +1,14 @@
 import * as React from 'react';
-import {Text, View, StatusBar, Button} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import { Text, View, StatusBar, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {windowWidth} from '../../constants';
+import { windowWidth } from '../../constants';
 let windowWidthmain = windowWidth / 3;
-import {ImageBackgrounds, Mycourses} from '../../components';
-import {Homescreen, Mycourse, Course} from '..';
-import {LogBox} from 'react-native';
+import { ImageBackgrounds, Mycourses } from '../../components';
+import { Homescreen, Mycourse, Course ,Homestack,Errorscreen} from '..';
+import { LogBox } from 'react-native';
+import { DrawerActions } from '@react-navigation/native';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -21,9 +22,9 @@ function Feed() {
         backgroundColor={colors.primary}
         translucent={true}
       />
-      <ImageBackgrounds style={{flex: 1}}>
+      <ImageBackgrounds style={{ flex: 1 }}>
         <View
-          style={{flex: 1, justifyContentT: 'center', alignItems: 'center'}}>
+          style={{ flex: 1, justifyContentT: 'center', alignItems: 'center' }}>
           <Text>Feed!</Text>
         </View>
       </ImageBackgrounds>
@@ -34,7 +35,7 @@ function Feed() {
 function Profile() {
   return (
     <>
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Profile!</Text>
         <Button
           title="Open drawer"
@@ -47,7 +48,7 @@ function Profile() {
 
 function Notifications() {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Notifications!</Text>
     </View>
   );
@@ -55,32 +56,21 @@ function Notifications() {
 
 const Tab = createMaterialBottomTabNavigator();
 
-function MyTabs() {
+function MyTabs({props}) {
+  // function MyD() ={ props.Mydrawer };
+  const MyD = () => {
+    props.data
+  }
+
   return (
     <Tab.Navigator
       initialRouteName="Homescreen"
       activeColor={colors.primary}
-      // labelStyle={{fontSize: 12}}
       tabBarOptions={{
         activeTintColor: '#fff',
         inactiveTintColor: 'lightgray',
         style: {},
       }}
-//       tabBarStyle= {
-// {
-//     shadowOpacity: 0.58,
-//     shadowRadius: 16.0,
-//     elevation: 24,
-//     borderTopLeftRadius: 21,
-//     borderTopRightRadius: 21,
-//     backgroundColor: '#fff',
-//     position: 'absolute',
-//     bottom: 0,
-//     padding: 10,
-//     width: '100%',
-//     height: 84,
-//     zIndex: 0,
-// }}
       barStyle={{
         backgroundColor: '#f9f9f9',
         position: 'absolute',
@@ -90,17 +80,20 @@ function MyTabs() {
         borderBottomRightRadius: 5,
         borderBottomLeftRadius: 5,
         elevation: 3,
-        shadowOffset: {width: 0, height: 5},
+        shadowOffset: { width: 0, height: 5 },
         shadowColor: '#000',
         shadowOpacity: 0.4,
         position: 'relative',
       }}>
       <Tab.Screen
         name="Homescreen"
-        component={Homescreen}
+        component={Homestack}
+        // Mydrawer
+        data ={MyD}
+        
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({color}) => <Icon name="home" color={color} size={24} />,
+          tabBarIcon: ({ color }) => <Icon name="home" color={color} size={24} />,
         }}
       />
       <Tab.Screen
@@ -108,7 +101,7 @@ function MyTabs() {
         component={Homescreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({color}) => <Icon name="search" color={color} size={24} />,
+          tabBarIcon: ({ color }) => <Icon name="search" color={color} size={24} />,
         }}
       />
       <Tab.Screen
@@ -116,21 +109,19 @@ function MyTabs() {
         component={Mycourse}
         options={{
           tabBarLabel: 'My Course',
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({ color }) => (
             <Icon name="laptop" color={color} size={24} />
           ),
         }}
       />
       <Tab.Screen
         name="Profile"
-        component={Course}
+        component={Errorscreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({ color }) => (
             <>
-              {/* <View style={{backgroundColor: colors.black,height:40,width: 80,alignItems: 'center'}}> */}
               <Icon name="user-circle" color={color} size={24} />
-              {/* </View> */}
             </>
           ),
         }}
@@ -140,9 +131,12 @@ function MyTabs() {
 }
 
 export default function Bottomtab() {
+  const Mydrawer = () => {
+    navigation.dispatch(DrawerActions.openDrawer());
+  }
   return (
     <NavigationContainer independent={true}>
-      <MyTabs />
+      <MyTabs data={Mydrawer} />
     </NavigationContainer>
   );
 }

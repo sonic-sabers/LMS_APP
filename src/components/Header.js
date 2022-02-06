@@ -1,10 +1,10 @@
-import {StyleSheet, Text, Image, View} from 'react-native';
+import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import { __ } from '@utility/translation';
 let Username = 'My name';
 
-export default function Header({dropdown}) {
+export default function Header({ dropdown, onPress }) {
   return (
     <View
       style={{
@@ -12,26 +12,11 @@ export default function Header({dropdown}) {
         flexDirection: 'row',
         padding: 10,
         alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 6,
-        },
-        shadowOpacity: 0.37,
-        shadowRadius: 7.49,
-        elevation: 12,
+        borderBottomWidth: 0.8,
+        borderColor: "#777"
       }}>
-      {/* 
-      <View style={styles.headers}>
-        <View style={styles.header2}>
-          <Text style={styles.text1}>Hello, {Username}</Text>
-          <Text style={styles.text2}>What do you want to learn today?</Text>
-        </View>
-        <View>
-          <Text> DropDown</Text>
-        </View>
-      </View> */}
-      <View style={styles.header1}>
+
+      <TouchableOpacity onPress={onPress} style={styles.header1}>
         <Image
           source={require('../assets/imgs/MenuIcon1.png')}
           style={{
@@ -45,12 +30,11 @@ export default function Header({dropdown}) {
               height: 5,
             },
             shadowOpacity: 0.34,
-            shadowRadius: 6.27,
-
-            elevation: 10,
+            // shadowRadius: 6.27,
+            // elevation: 10,
           }}
         />
-      </View>
+      </TouchableOpacity>
       <View
         style={{
           flexDirection: 'row',
@@ -59,17 +43,35 @@ export default function Header({dropdown}) {
           flex: 1,
         }}>
         <View>
-          <Text style={styles.text1}>Hello, {Username}</Text>
-          <Text style={styles.text2}>What do you want to learn today?</Text>
+          <Text style={styles.text1}>{__('Hello')}, {Username}</Text>
+          <Text style={styles.text2}>{__('What do you want to learn today?')}</Text>
         </View>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           {!dropdown ? (
             <View>
-              <Text> DropDown || </Text>
+              <Text> DropDown  </Text>
             </View>
           ) : null}
 
-          <Text> Filter</Text>
+          <TouchableOpacity onPress={()=> alert('csd')} style={styles.header1}>
+            <Image
+              source={require('../assets/imgs/Filter.png')}
+              style={{
+                height: 28,
+                width: 28,
+                paddingLeft: 10,
+                alignSelf: 'center',
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 5,
+                },
+                shadowOpacity: 0.34,
+                // shadowRadius: 6.27,
+                // elevation: 10,
+              }}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -91,10 +93,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 3,
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowColor: '#000',
     shadowOpacity: 0.4,
     position: 'relative',
+    fontFamily: 'poppins',
     // borde
   },
   header2: {},
@@ -104,8 +107,9 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginLeft: -0,
     color: '#0B121F',
+    fontFamily: 'poppins',
   },
-  text2: {fontSize: 12, fontWeight: '300', marginLeft: -0, color: '#70747E'},
+  text2: { fontSize: 12, fontWeight: '300', marginLeft: -0, color: '#70747E' },
 });
 // font-family: Poppins;
 // font-size: 20px;

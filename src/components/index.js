@@ -19,5 +19,11 @@ export { default as ForgetP } from './ForgetP';
 export { default as Mytextinput } from './Mytextinput';
 export { default as Banner } from './Banner';
 export { default as Myheader } from './Myheader';
+export { default as Mycategory } from './Mycategory';
 // export { default as MyText } from './MyText';
 // export { default as MyText } from './MyText';
+// export { default as MyText } from './MyText';
+// export { default as MyText } from './MyText';
+
+
+
