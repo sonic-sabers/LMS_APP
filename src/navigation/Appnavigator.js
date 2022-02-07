@@ -12,7 +12,7 @@ import {
   Entermail,
   Register,
   Otpscreen,
-  Resetpass, Bottomtab, Notifications, Myprofile, Loginscreen, Homescreen,Categories
+  Resetpass, Bottomtab, Notifications, Myprofile, Loginscreen, Homescreen,Categories,Offers,Offerdetails
 } from '../screens';
 const screenOptionStyle = {
   headerShown: false,
@@ -74,6 +74,12 @@ function MyDrawer() {
       <Drawer.Screen name="Otpscreen" component={Otpscreen} />
       <Drawer.Screen name="Categories" component={Categories} />
       <Drawer.Screen name="Entermail" component={Entermail} />
+      <Drawer.Screen name="Offers" component={Offers} />
+      <Drawer.Screen name="Offerdetails" component={Offerdetails} />
+      {/* <Drawer.Screen name="Entermail" component={Entermail} /> */}
+      {/* <Drawer.Screen name="Entermail" component={Entermail} /> */}
+      {/* <Drawer.Screen name="Entermail" component={Entermail} /> */}
+      {/* <Drawer.Screen name="Entermail" component={Entermail} /> */}
 
     </Drawer.Navigator>
   );

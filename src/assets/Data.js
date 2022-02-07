@@ -3,6 +3,8 @@ const states = {
     {
       name: 'Development',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -12,6 +14,8 @@ const states = {
     {
       name: 'Teaching',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -21,6 +25,8 @@ const states = {
     {
       name: 'Computer',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -30,6 +36,8 @@ const states = {
     {
       name: 'Teaching1',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -39,6 +47,8 @@ const states = {
     {
       name: 'Computer1',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -48,6 +58,8 @@ const states = {
     {
       name: 'Development1',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -57,6 +69,8 @@ const states = {
     {
       name: 'Teaching2',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -66,6 +80,8 @@ const states = {
     {
       name: 'Computer3',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -75,6 +91,8 @@ const states = {
     {
       name: 'Development2',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -84,6 +102,8 @@ const states = {
     {
       name: 'Computer2',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -93,6 +113,8 @@ const states = {
     {
       name: 'Teaching3',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',
@@ -102,6 +124,8 @@ const states = {
     {
       name: 'Development3',
       course: 'Core Java for \n bignner',
+      offerdetails: `require('../../../assets/imgs/Banner.png')`,
+      Screenname: 'Offerdetails',
       Trainer: 'Trainer name',
       rating: '4',
       reviews: ' (432)',

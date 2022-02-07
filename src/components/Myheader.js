@@ -18,7 +18,9 @@ export default function Myheader({ Screenname, Headername, props, filter }) {
             height: 3,
           },
           // borderBottomWidth: 0.8,
-          borderColor: "#777"
+          borderColor: "#777",
+          opacity: 1,
+          backgroundColor: 'rgba(255, 255, 255,0.0)',
         }} {...props}>
         <TouchableOpacity style={{
           marginLeft: 7,
@@ -57,8 +59,6 @@ export default function Myheader({ Screenname, Headername, props, filter }) {
                     height: 5,
                   },
                   shadowOpacity: 0.34,
-                  // shadowRadius: 6.27,
-                  // elevation: 10,
                 }}
               />
             </TouchableOpacity>

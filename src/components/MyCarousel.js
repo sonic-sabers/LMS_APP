@@ -1,11 +1,12 @@
-import React, {useState, useRef} from 'react';
-import {Text, View, Dimensions, Image} from 'react-native';
-import Carousel, {Pagination} from 'react-native-snap-carousel';
-import {colors} from '../constants';
+import React, { useState, useRef } from 'react';
+import { Text, View, Dimensions, Image } from 'react-native';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { colors } from '../constants';
 
 export const SLIDER_WIDTH = Dimensions.get('window').width;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
-
+var width = Dimensions.get('window').width - 5;
+const ratio = 170 / 408;
 const images = [
   {
     id: 1,
@@ -27,7 +28,7 @@ const images = [
   },
 ];
 
-const renderItem = ({item}) => {
+const renderItem = ({ item }) => {
   return (
     <View
       style={{
@@ -41,9 +42,13 @@ const renderItem = ({item}) => {
       }}>
       <Image
         source={item.image}
-        style={{width: 260, height: 260, paddingBottom: -30}}
+        style={{
+          width: width,
+          height: width * ratio,
+          resizeMode: 'contain', paddingBottom: -30
+        }}
       />
-      <Text style={{marginVertical: 10, fontSize: 26, fontWeight: '500'}}>
+      <Text style={{ marginVertical: 10, fontSize: 26, fontWeight: '500' }}>
         {item.name}
       </Text>
       <Text
@@ -75,7 +80,7 @@ const myCarousel = () => {
   const [index, setIndex] = useState(0);
   const isCarousel = useRef(null);
   return (
-    <View style={{marginVertical: 10}}>
+    <View style={{ marginVertical: 10 }}>
       <Carousel
         ref={isCarousel}
         data={images}
@@ -87,9 +92,9 @@ const myCarousel = () => {
         autoplay
         enableMomentum={false}
         loop
-        // style={{
-        //   alignSelf: 'center',
-        // }}
+      // style={{
+      //   alignSelf: 'center',
+      // }}
       />
       <Pagination
         dotsLength={images.length}

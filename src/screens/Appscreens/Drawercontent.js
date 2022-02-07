@@ -18,7 +18,7 @@ import {
 } from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {useDispatch, useSelector} from 'react-redux';
-import {Notifications, Mycourse, Course} from '..';
+import {Notifications, Mycourse, Course,Offers} from '..';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ImageBackgrounds} from '../../components';
@@ -107,7 +107,7 @@ export default function Drawercontent(props) {
                 )}
                 label="Offer"
                 onPress={() => {
-                  props.navigation.navigate('Notifications');
+                  props.navigation.navigate('Offers');
                 }}
                 style={{marginBottom: -5}}
               />

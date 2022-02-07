@@ -39,7 +39,7 @@ export default function Mycategory() {
                 )
                 }
             />
-        </View >
+        </View>
     );
 }
 const styles = StyleSheet.create({
