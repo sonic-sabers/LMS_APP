@@ -6,65 +6,64 @@ import {
   View,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
+  TouchableOpacity, FlatList,
 } from 'react-native';
 import { colors } from '../constants';
 import Data from '../constants/Data';
 import { useNavigation } from '@react-navigation/native';
+import { __ } from '@utility/translation';
+import { withNavigation } from 'react-navigation';
 
-class PopularCategory extends Component {
-  constructor(props) {
-    super(props);
-    this.initData = Data;
-    this.state = {
-      data: this.initData,
-      dataSource: [],
-    };
-  }
-  render() {
-    const items = this.state.data.map(item => {
-      return (
-        <View key={item.id} style={{ marginTop: 10 }}>
-          <ImageBackground
-            key={item.id}
-            source={require('../assets/imgs/imgIMG.png')}
-            resizeMode="cover"
-            imageStyle={{ borderRadius: 6 }}
-            style={styles.image}>
-            <TouchableOpacity
-              onPress={() => alert('You choose ' + item.category)}>
-              <View style={styles.item}>
-                <Text style={styles.itemname1}>{item.category}</Text>
-              </View>
-            </TouchableOpacity>
-          </ImageBackground>
-        </View>
-      );
-    });
 
-    return (
-      <View>
-        <Text style={styles.top}>Popular category in our platform</Text>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={{
-            paddingLeft: 10, marginLeft: -10
-          }}>
-          {items}
-        </ScrollView>
-        {/* <TouchableOpacity style={{
-          marginRight: 10
-        }} onPress={() => this.navigation.navigate('Homescreen')}>
-          <View style={styles.opacity}>
-            <Text style={styles.seemore}>see more</Text>
+export default function PopularCategory() {
+  const navigation = useNavigation();
+
+  return (
+    <View>
+      <Text style={styles.top}>Popular category in our platform</Text>
+
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        keyExtractor={(item) => item.id}
+        data={Data}
+        horizontal
+        renderItem={({ item }) => (
+          <View key={item.id} style={{ marginTop: 10 }}>
+            <ImageBackground
+              key={item.id}
+              source={require('../assets/imgs/imgIMG.png')}
+              resizeMode="cover"
+              imageStyle={{ borderRadius: 6 }}
+              style={styles.image}>
+              <TouchableOpacity
+                // onPress={() => alert('You choose ' + item.category)}
+                onPress={() => navigation.navigate('Catrgoryscreen', {
+                  itemCategory: item.category,
+                  otherParam: 'anything you want here',
+                  itemId: 'svs saascds csd  dvsd',
+                  Lastscreen:'PopularCategory',
+
+                })}
+              >
+                <View style={styles.item}>
+                  <Text style={styles.itemname1}>{item.category}</Text>
+                </View>
+              </TouchableOpacity>
+            </ImageBackground>
           </View>
-        </TouchableOpacity> */}
-      </View>
-    );
-  }
+        )
+        }
+      />
+      <TouchableOpacity style={{
+        marginRight: 10
+      }} onPress={() => navigation.navigate('Categories')}>
+        <View style={styles.opacity}>
+          <Text style={styles.seemore}> {__('see more')}</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
 }
-export default PopularCategory;
 
 const styles = StyleSheet.create({
   item: {

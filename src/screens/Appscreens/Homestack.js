@@ -6,7 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 // import StackN from './src/navigator/Navigation';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Loginscreen} from '../screens';
-import { Homescreen ,Categories,Catrgoryscreen} from '..';
+import { Homescreen ,Categories,Catrgoryscreen,Mycourse} from '..';
 
 const Stack = createStackNavigator();
 const screenOptionStyle = {
@@ -43,6 +43,8 @@ export default function Homestack() {
         <Stack.Screen name="Homescreen" component={Homescreen} />
         <Stack.Screen name="Categories" component={Categories} />
         <Stack.Screen name="Catrgoryscreen" component={Catrgoryscreen} />
+        <Stack.Screen name="Mycourse" component={Mycourse} />
+        {/* <Stack.Screen name="ProfileScreen" component={ProfileScreen} /> */}
         {/* <Stack.Screen name="ProfileScreen" component={ProfileScreen} /> */}
         {/* <Stack.Screen name="ProfileScreen" component={ProfileScreen} /> */}
       </Stack.Navigator>

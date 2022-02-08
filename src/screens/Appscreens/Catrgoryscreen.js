@@ -25,10 +25,10 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
 
 export default function Catrgoryscreen({ route, navigation }) {
-    const { itemId, otherParam,itemCategory } = route.params;
+    const { itemId, otherParam,itemCategory,Lastscreen } = route.params;
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff', }}>
-            <Myheader style={{ marginRight: 100 }} Screenname="Categories"
+            <Myheader style={{ marginRight: 100 }} Screenname={Lastscreen} Lastscreen
             Headername={itemCategory}
             />
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -41,7 +41,7 @@ export default function Catrgoryscreen({ route, navigation }) {
                             // color: '#1A21BC',
                             fontSize: 18,
                             marginLeft: 10,
-                            fontFamily: 'poppins',
+                            fontFamily: 'Poppins-Regular',
                             fontStyle: 'normal'
                         }}>More</Text>
                     <Onlinecourse  all  />

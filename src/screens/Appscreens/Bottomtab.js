@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { windowWidth } from '../../constants';
 let windowWidthmain = windowWidth / 3;
 import { ImageBackgrounds, Mycourses } from '../../components';
-import { Homescreen, Mycourse, Course ,Homestack,Errorscreen} from '..';
+import { Homescreen, Mycourse, Course ,Homestack,Errorscreen,Myprofile} from '..';
 import { LogBox } from 'react-native';
 import { DrawerActions } from '@react-navigation/native';
 
@@ -116,7 +116,7 @@ function MyTabs({props}) {
       />
       <Tab.Screen
         name="Profile"
-        component={Errorscreen}
+        component={Myprofile}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (

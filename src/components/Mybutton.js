@@ -35,7 +35,7 @@ export default function Mybutton({screenName, submitting, text, onPress}) {
             ]}>
             <Text
               style={[
-                {fontSize: 16, fontWeight: '500', color: 'white',   fontFamily:'poppins',},
+                {fontSize: 16, fontWeight: '500', color: 'white',   fontFamily:'Poppins-Regular',},
                 {color},
               ]}>
               {text}

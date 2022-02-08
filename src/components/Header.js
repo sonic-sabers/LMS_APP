@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.4,
     position: 'relative',
-    fontFamily: 'poppins',
+    fontFamily: 'Poppins-Regular',
     // borde
   },
   header2: {},
@@ -107,11 +107,11 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginLeft: -0,
     color: '#0B121F',
-    fontFamily: 'poppins',
+    fontFamily: 'Poppins-Regular',
   },
   text2: { fontSize: 12, fontWeight: '300', marginLeft: -0, color: '#70747E' },
 });
-// font-family: Poppins;
+// font-family: Poppins-Regular;
 // font-size: 20px;
 // font-style: normal;
 // font-weight: 500;

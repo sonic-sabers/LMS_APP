@@ -25,6 +25,6 @@ export { default as Offers } from './Appscreens/Drawerscreens/Offers';
 export { default as Share } from './Appscreens/Drawerscreens/Share';
 export { default as Favourite } from './Appscreens/Drawerscreens/Favourite';
 export { default as Myprofile } from './Appscreens/Drawerscreens/Myprofile';
-export { default as Offerdetails } from './Appscreens/Drawerscreens/Offerdetails';
+export { default as Offersscreen } from './Appscreens/Drawerscreens/Offersscreen';
 // export { default as Certificates } from './Appscreens/Drawerscreens/Certificates';
 // export { default as Certificates } from './Appscreens/Drawerscreens/Certificates';

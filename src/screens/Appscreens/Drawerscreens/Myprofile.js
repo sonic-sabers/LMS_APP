@@ -1,15 +1,44 @@
-import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Dimensions, StatusBar } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Tab, Text, TabView} from 'react-native-elements';
-import {ScrollView} from 'react-native-gesture-handler';
+import { Tab, Text, } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
 import Onlinecourse from '../../../components/Onlinecourse';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 
-export default function Myprofile({navigation}) {
-  const [index, setIndex] = React.useState(0);
-
+const FirstRoute = () => {
   return (
-    <View style={{flex: 1, padding: 10}}>
+    <>
+      <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
+    </>
+  )
+};
+
+const SecondRoute = () => {
+  return (
+    <>
+      <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
+    </>
+  )
+};
+
+const initialLayout = { width: Dimensions.get('window').width };
+
+const renderScene = SceneMap({
+  first: FirstRoute,
+  second: SecondRoute,
+});
+
+
+
+export default function Myprofile({ navigation }) {
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'first', title: 'Personal Details' },
+    { key: 'second', title: 'My Orders' },
+  ]);
+  return (
+    <View style={{ flex: 1, padding: 10 }}>
       <View
         style={{
           flexDirection: 'row',
@@ -35,7 +64,7 @@ export default function Myprofile({navigation}) {
       <View
         style={{
           alignSelf: 'center',
-          marginBottom:10
+          marginBottom: 10
         }}>
         <Image
           source={{
@@ -48,7 +77,7 @@ export default function Myprofile({navigation}) {
             paddingBottom: -40,
             borderRadius: 15,
             shadowColor: '#000',
-            shadowOffset: {width: 0, height: 2},
+            shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.5,
             shadowRadius: 2,
             // elevation: 2,
@@ -93,42 +122,40 @@ export default function Myprofile({navigation}) {
         </View>
         {/* <Text>scdsccd</Text> */}
       </View>
-      <View>
-        <View>
-          <Tab
-            value={index}
-            onChange={e => setIndex(e)}
-            indicatorStyle={{
-              backgroundColor: 'white',
-              height: 3,
-            }}
-            // {...props}
-            inactiveColor='green'
-            activeColor='black'
-            indicatorStyle={{backgroundColor: 'white'}}
-            style={{backgroundColor: 'pink'}}
-            variant="primary">
-            <Tab.Item title="Personal Details" titleStyle={{fontSize: 12}} />
-            <Tab.Item title="My Orders" titleStyle={{fontSize: 12}} />
-          </Tab>
+      <View style={{ flex: 1 }}>
+        <TabView
+          navigationState={{ index, routes }}
+          renderScene={renderScene}
+          onIndexChange={setIndex}
+          initialLayout={initialLayout}
+          style={styles.container}
+          renderTabBar={props => (
+            <TabBar
+              {...props}
+              renderLabel={({ route, color }) => (
+                <Text style={{ fontWeight: '600', fontFamily: 'Poppins-Regular', fontSize: 14, color: "#1a21bc" }}>
+                  {route.title}
+                </Text>
+              )}
+              style={{ backgroundColor: 'white', borderTopColor: 'rgba(9,9,9,3)', borderTopWidth: 1 }}
+              activeColor={colors.primary}
+              inactiveColor={'#e8bca19'}
+              bounces
+              tabStyle={{ backgroundColor: '#fff', marginVertical: -7 }}
+              indicatorStyle={{ width: 2, color: colors.black, height: 2 }}
+            />
+          )}
 
-          <TabView  inactiveColor='green'
-            activeColor='black' value={index} onChange={setIndex} animationType="spring">
-            <TabView.Item style={{width: '100%'}}>
-              <ScrollView showsVerticalScrollIndicator={false}>
-                <Onlinecourse filter="Online" />
-              </ScrollView>
-            </TabView.Item>
-            <TabView.Item style={{width: '100%'}}>
-              <ScrollView showsVerticalScrollIndicator={false}>
-                <Onlinecourse filter="offline" />
-              </ScrollView>
-            </TabView.Item>
-          </TabView>
-        </View>
+        />
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    // marginTop: StatusBar.currentHeight,
+  },
+  scene: {
+    flex: 1,
+  },
+});

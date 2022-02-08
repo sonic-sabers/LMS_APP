@@ -18,7 +18,7 @@ import {
 } from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {useDispatch, useSelector} from 'react-redux';
-import {Notifications, Mycourse, Course,Offers} from '..';
+import {Notifications, Mycourse, Course} from '..';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ImageBackgrounds} from '../../components';
@@ -39,7 +39,7 @@ export default function Drawercontent(props) {
               <TouchableOpacity
                 style={styles.userInfoSection}
                 onPress={() => {
-                  props.navigation.navigate('Myprofile');
+                  props.navigation.navigate('Errorscreen');
                 }}>
                 <View
                   style={{
@@ -64,7 +64,7 @@ export default function Drawercontent(props) {
                 )}
                 label="My Cart"
                 onPress={() => {
-                  props.navigation.navigate('Home');
+                  props.navigation.navigate('Myprofile');
                 }}
               />
               <DrawerItem
@@ -167,7 +167,7 @@ export default function Drawercontent(props) {
                     fontSize: 16,
                     fontWeight: 'bold',
                     marginLeft: -10,
-                    fontFamily:'poppins',
+                    fontFamily:'Poppins-Regular',
                     
                   }}>
                   Logout
@@ -193,7 +193,7 @@ export default function Drawercontent(props) {
                     fontSize: 16,
                     fontWeight: 'bold',
                     marginLeft: -10,
-                    fontFamily:'poppins',
+                    fontFamily:'Poppins-Regular',
                   }}>
                   Login
                 </Text>

@@ -21,6 +21,7 @@ import {
 import { Searchscreen, PopularCategory, Latestcourse } from '../../components';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { __ } from '@utility/translation';
 
 const Homescreen = ({ props }) => {
   const navigation = useNavigation();
@@ -50,14 +51,8 @@ const Homescreen = ({ props }) => {
             <Banner />
             <View style={{ marginLeft: 10, marginBottom: 80, flex: 1 }}>
               <PopularCategory />
-              <TouchableOpacity style={{
-                marginRight: 10
-              }} onPress={() => navigation.navigate('Categories')}>
-                <View style={styles.opacity}>
-                  <Text style={styles.seemore}>see more</Text>
-                </View>
-              </TouchableOpacity>
-              <Latestcourse />
+      
+              <Latestcourse seemore all />
               <TTrainers />
               <Prevcourse />
             </View>

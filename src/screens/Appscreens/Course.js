@@ -53,7 +53,7 @@ export default function Course({ navigation }) {
               marginVertical: 10,
               justifyContent: 'center',
               alignItems: 'center',
-              fontFamily:'poppins',
+              fontFamily:'Poppins-Regular',
             }}
               onPress={() => alert(item.name)}
             >
@@ -97,7 +97,7 @@ export default function Course({ navigation }) {
               fontSize: 22,
               fontWeight: '500',
               color: colors.black,
-              fontFamily:'poppins',
+              fontFamily:'Poppins-Regular',
             }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Text>
@@ -107,7 +107,7 @@ export default function Course({ navigation }) {
               fontSize: 15,
               fontWeight: '400',
               marginTop: 10,
-              fontFamily:'poppins',
+              fontFamily:'Poppins-Regular',
             }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id suscipit
             at rutrum ultricies. Ut vitae elit nisi, quis tortor porta. Gravida

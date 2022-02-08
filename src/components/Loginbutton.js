@@ -14,7 +14,7 @@ export default function Loginbutton({ screenName, text }) {
               fontSize: 16,
               color: colors.primary,
               fontWeight: '500',
-              fontFamily: 'poppins',
+              fontFamily: 'Poppins-Regular',
             }}>
 
             {text ?

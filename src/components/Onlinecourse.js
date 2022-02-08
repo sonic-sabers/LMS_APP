@@ -19,7 +19,7 @@ export default function Onlinecourse(props) {
 	return (
 		<View {...props}>
 			<FlatList
-				scrollEnabled={false}
+				// scrollEnabled={false}
 				showsVerticalScrollIndicator={false}
 				keyExtractor={(item) => item.id}
 				data={Data}
@@ -57,7 +57,7 @@ export default function Onlinecourse(props) {
 													style={{
 														fontSize: 18,
 														fontWeight: '800',
-														fontFamily: 'poppins',
+														fontFamily: 'Poppins-Regular',
 
 													}}>
 													{item.course}
@@ -74,7 +74,7 @@ export default function Onlinecourse(props) {
 													<Text
 														style={{
 															fontSize: 14,
-															fontFamily: 'poppins',
+															fontFamily: 'Poppins-Regular',
 															fontWeight: '500',
 														}}>
 														{item.Instructor}
@@ -136,7 +136,7 @@ export default function Onlinecourse(props) {
 															style={{
 																fontSize: 16,
 																fontWeight: '700',
-																fontFamily: 'poppins',
+																fontFamily: 'Poppins-Regular',
 																color: '#000000'
 															}}>
 															₹{item.price}

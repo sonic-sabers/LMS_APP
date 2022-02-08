@@ -30,7 +30,7 @@ export default function Mycategory() {
                         onPress={() => navigation.navigate('Catrgoryscreen', {
                             itemCategory: item.category,
                             otherParam: 'anything you want here',
-                            itemId:'svs saascds csd  dvsd'
+                            itemId: 'svs saascds csd  dvsd'
                         })}
                     >
                         <Icon name={item.icon} size={25} color="#000" />
@@ -39,7 +39,7 @@ export default function Mycategory() {
                 )
                 }
             />
-        </View>
+        </View >
     );
 }
 const styles = StyleSheet.create({
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         fontSize: 14,
         fontWeight: '400',
-        fontFamily: 'poppins',
+        fontFamily: 'Poppins-Regular',
         marginLeft: 10,
     }
 });

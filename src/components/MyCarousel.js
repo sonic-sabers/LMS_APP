@@ -5,8 +5,10 @@ import { colors } from '../constants';
 
 export const SLIDER_WIDTH = Dimensions.get('window').width;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
-var width = Dimensions.get('window').width - 5;
+
+const { width } = Dimensions.get('window');
 const ratio = 170 / 408;
+
 const images = [
   {
     id: 1,
@@ -43,9 +45,8 @@ const renderItem = ({ item }) => {
       <Image
         source={item.image}
         style={{
-          width: width,
-          height: width * ratio,
-          resizeMode: 'contain', paddingBottom: -30
+          width,
+          height: width * ratio, paddingBottom: -30
         }}
       />
       <Text style={{ marginVertical: 10, fontSize: 26, fontWeight: '500' }}>

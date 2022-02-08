@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 		marginBottom: 4,
 		fontSize: 14,
 		fontWeight: '400',
-		fontFamily: 'poppins',
+		fontFamily: 'Poppins-Regular',
 		marginLeft: 10,
 	}
 });

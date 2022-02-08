@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {colors} from '../constants';
 import Data from '../constants/Data';
+import { __ } from '@utility/translation';
 
 export default class TTrainers extends Component {
   constructor(props) {
@@ -68,7 +69,7 @@ export default class TTrainers extends Component {
                     textAlign: 'left',
                     marginLeft: 2,
                   }}>
-                  {item.rating} - stars
+                  {item.rating} - ⭐⭐⭐⭐
                 </Text>
                 <Text
                   style={{
@@ -123,9 +124,9 @@ export default class TTrainers extends Component {
                 color: '#1A21BC',
                 fontSize: 18,
                 marginLeft: 10,
-                fontFamily: 'poppins'
+                fontFamily: 'Poppins-Regular'
               }}>
-              see more
+              {__('see more')}
             </Text>
           </View>
         </TouchableOpacity>

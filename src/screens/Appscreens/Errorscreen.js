@@ -26,8 +26,8 @@ export default function Errorscreen() {
             <ScrollView style={{ flex: 1 }}>
                 <Myheader Screenname='Homescreen' Headername='' filter={false} />
                 <View style={{ alignItems: 'center', MarginTop: 20, flex: 1 }}>
-                    <Text style={{ fontSize: 36, fontWeight: '700', fontFamily: 'Poppins', color: "#1A21BC" }}>OOPS!</Text>
-                    <Text style={{ fontSize: 14, fontWeight: '500', fontFamily: 'Poppins', color: "#000" }}>The page you are looking for is not found.</Text>
+                    <Text style={{ fontSize: 36, fontWeight: '700', fontFamily: 'Poppins-Regular', color: "#1A21BC" }}>OOPS!</Text>
+                    <Text style={{ fontSize: 14, fontWeight: '500', fontFamily: 'Poppins-Regular', color: "#000" }}>The page you are looking for is not found.</Text>
                     <Image
                         // source={require('../assets/imgs/Cat.png')}
                         source={require('../../assets/imgs/Cat.png')}
@@ -45,7 +45,7 @@ export default function Errorscreen() {
 
                         }}
                     />
-                    <Text style={{ fontSize: 12, fontWeight: '300', fontFamily: 'Poppins', color: "#000", textAlign: "center", marginVertical: 20, marginHorizontal: 30 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, et mauris, malesuada cras. Non blandit mi ullamcorper egestas pretium ornare. Nec diam metus volutpat ipsum vitae massa donec. Risus sagittis at.</Text>
+                    <Text style={{ fontSize: 12, fontWeight: '300', fontFamily: 'Poppins-Regular', color: "#000", textAlign: "center", marginVertical: 20, marginHorizontal: 30 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, et mauris, malesuada cras. Non blandit mi ullamcorper egestas pretium ornare. Nec diam metus volutpat ipsum vitae massa donec. Risus sagittis at.</Text>
                     <View style={{ flex: 1, marginHorizontal: -20 }}>
                         <Mybutton text='Get the Course' />
                         <Loginbutton
