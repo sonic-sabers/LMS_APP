@@ -32,15 +32,9 @@ export default function ForgetP({ScreenName}) {
   return (
     <View>
       <TouchableOpacity
-        style={{
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-          flexDirection: 'row',
-          // marginTop: 5,
-          marginRight: 10,
-        }}
+        style={styles.container}
         onPress={() => navigation.navigate(ScreenName)}>
-        <Text style={{color: colors.black, fontWeight: '800'}}>
+        <Text style={styles.mytext}>
           Forget Password?
         </Text>
       </TouchableOpacity>
@@ -48,4 +42,13 @@ export default function ForgetP({ScreenName}) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+container:{
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          flexDirection: 'row',
+          // marginTop: 5,
+          marginRight: 10,
+        },
+  mytext:{color: colors.black, fontWeight: '800'}
+});
